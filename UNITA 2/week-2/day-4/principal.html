@@ -12,18 +12,20 @@
     <header>
         <nav class="navbar">
 
-            <img src="./assets/logo.svg" alt="logo web">
-
             <div>
+                <img src="./assets/css/img/logo.svg" alt="logo web">
+            </div>
+            
+            <div id="right">
                 <i class="far fa-bell" style="color: #ababab;"></i>
-                <img src="./assets/avatar-1.jpg" alt="foto avatar">
+                <img src="./assets/css/img/avatar-1.jpg" alt="foto avatar">
                 <div class="dropdown">
                     <button class="dropbtn">
                         <i class="fas fa-bars"></i>
                     </button>
                     <ul class="dropdown-content">
                         <li>
-                            <img src="./assets/avatar-1.jpg" alt="foto avatar">
+                            <img src="./assets/css/img/avatar-1.jpg" alt="foto avatar">
                             <h2>
                                 Annette Black
                             </h2>
@@ -64,7 +66,7 @@
     </header>
 
     <main>
-        <section>
+        <section id="section1">
             <h1>
                 Welcome Web Students!
             </h1>
@@ -72,49 +74,66 @@
                 Hand-picked instructor and expertly crafted courses, designed 
                 for the modern students and entrepreneur.
             </p>
-            <div>
-                <button>Browse Courses</button>
-                <button>Are You instructor?</button>
+            <div id="buttons">
+                <button id="button1">Browse Courses</button>
+                <button id="button2">Are You instructor?</button>
+            </div>
+            <div id="principal-img">
+
             </div>
         </section>
 
-        <section>
-            <div>
-                <i class="far fa-video" style="color: #c7a252;"></i>
-                <h4>
-                    30,000 online Courses
-                </h4>
-                <p>
-                    Enjoy a variety of fresh topics
-                </p>
+        <section id="section2">
+            <div class="mini-article">
+                <div>
+                    <i class="far fa-video" style="color: #c7a252;"></i>
+                </div>
+                <div>
+                    <h4>
+                        30,000 online Courses
+                    </h4>
+                    <p>
+                        Enjoy a variety of fresh topics
+                    </p>
+                </div>
             </div>
-            <div>
-                <i class="far fa-user-friends" style="color: #b3884d;"></i>
-                <h4>
-                    Expert instruction
-                </h4>
-                <p>
-                    Find the right instructor for you
-                </p>
+
+            <div class="mini-article">
+                <div>
+                    <i class="far fa-user-friends" style="color: #b3884d;"></i>
+                </div>
+                <div>
+                    <h4>
+                        Expert instruction
+                    </h4>
+                    <p>
+                        Find the right instructor for you
+                    </p>
+                </div>
             </div>
-            <div>
-                <i class="far fa-clock" style="color: #d29c51;"></i>
-                <h4>
-                    Liftime access
-                </h4>
-                <p>
-                    Learn on your schedule
-                </p>
+
+            <div class="mini-article">
+                <div>
+                    <i class="far fa-clock" style="color: #d29c51;"></i>
+                </div>
+                <div>
+                    <h4>
+                        Liftime access
+                    </h4>
+                    <p>
+                        Learn on your schedule
+                    </p>
+                </div>
             </div>
         </section>
 
-        <section>
+        <section id="section3">
             <h3>
                 Recommended
             </h3>
             <article>
                 <div>
-                    <img src="./assets/course-graphql.jpg" alt="">
+                    <img src="./assets/css/img/course-graphql.jpg" alt="" class="copertina">
                     <h4>
                         GraphQL: introduction to graphQL for beginners
                     </h4>
@@ -132,19 +151,22 @@
                         <i class="far fa-star" style="color: #FFD43B;"></i>
                         2.5 <span>(1,500)</span>
                     </p>
+                    
                     <p>
                         $500 <span>$600</span>
                     </p>
                     <hr>
-                    <p>
-                        <img src="./assets/avatar-2.jpg" alt="foto avatar">
-                        Brooklyn Simmons
+                    <section class="mini-section">
+                        <p class="username">
+                            <img src="./assets/css/img/avatar-2.jpg" alt="foto avatar" class = "img-avatar">
+                            Brooklyn Simmons
+                        </p>
                         <i class="far fa-bookmark" style="color: #a3a3a3;"></i>
-                    </p>
+                    </section>
                 </div>
 
                 <div>
-                    <img src="./assets/course-javascript.jpg" alt="">
+                    <img src="./assets/css/img/course-javascript.jpg" alt="" class="copertina">
                     <h4>
                         A Complete Beginner's Guide to JavaScript
                     </h4>
@@ -166,11 +188,13 @@
                         $700 <span>$850</span>
                     </p>
                     <hr>
-                    <p>
-                        <img src="./assets/avatar-3.jpg" alt="foto avatar">
-                        Jenny Wilson
+                    <section class="mini-section">
+                        <p class="username">
+                            <img src="./assets/css/img/avatar-3.jpg" alt="foto avatar" class = "img-avatar">
+                            Jenny Wilson
+                        </p>
                         <i class="far fa-bookmark" style="color: #a3a3a3;"></i>
-                    </p>
+                    </section>
                 </div>
             </article>
 
@@ -179,7 +203,7 @@
             </h3>
             <article>
                 <div>
-                    <img src="./assets/course-html.jpg" alt="">
+                    <img src="./assets/css/img/course-html.jpg" alt="" class="copertina">
                     <h4>
                         HTML Full Corse - Build a Website Tutorial
                     </h4>
@@ -201,15 +225,17 @@
                         $550 <span>$700</span>
                     </p>
                     <hr>
-                    <p>
-                        <img src="./assets/avatar-4.jpg" alt="foto avatar">
-                        Miston Wilson
+                    <section class="mini-section">
+                        <p class="username">
+                            <img src="./assets/css/img/avatar-4.jpg" alt="foto avatar" class = "img-avatar">
+                            Miston Wilson
+                        </p>
                         <i class="far fa-bookmark" style="color: #a3a3a3;"></i>
-                    </p>
+                    </section>
                 </div>
 
                 <div>
-                    <img src="./assets/course-javascript.jpg" alt="">
+                    <img src="./assets/css/img/course-javascript.jpg" alt="" class="copertina">
                     <h4>
                         A Complete Beginner's Guide to JavaScript
                     </h4>
@@ -231,11 +257,13 @@
                         $700 <span>$850</span>
                     </p>
                     <hr>
-                    <p>
-                        <img src="./assets/avatar-3.jpg" alt="foto avatar">
-                        Jenny Wilson
+                    <section class="mini-section">
+                        <p class="username">
+                            <img src="./assets/css/img/avatar-3.jpg" alt="foto avatar" class = "img-avatar">
+                            Jenny Wilson
+                        </p>
                         <i class="far fa-bookmark" style="color: #a3a3a3;"></i>
-                    </p>
+                    </section>
                 </div>
             </article>
 
@@ -244,7 +272,7 @@
             </h3>
             <article>
                 <div>
-                    <img src="./assets/course-gatsby.jpg" alt="">
+                    <img src="./assets/css/img/course-gatsby.jpg" alt="" class="copertina">
                     <h4>
                         Revolutionize how you build the web
                     </h4>
@@ -266,15 +294,17 @@
                         $800 <span>$850</span>
                     </p>
                     <hr>
-                    <p>
-                        <img src="./assets/avatar-2.jpg" alt="foto avatar">
-                        Jenny Wilson
+                    <section class="mini-section">
+                        <p class="username">
+                            <img src="./assets/css/img/avatar-2.jpg" alt="foto avatar" class = "img-avatar">
+                            Jenny Wilson
+                        </p>
                         <i class="far fa-bookmark" style="color: #a3a3a3;"></i>
-                    </p>
+                    </section>
                 </div>
 
                 <div>
-                    <img src="./assets/course-html.jpg" alt="">
+                    <img src="./assets/css/img/course-html.jpg" alt="" class="copertina">
                     <h4>
                         HTML Full Corse - Build a Website Tutorial
                     </h4>
@@ -296,18 +326,19 @@
                         $550 <span>$700</span>
                     </p>
                     <hr>
-                    <p>
-                        <img src="./assets/avatar-4.jpg" alt="foto avatar">
-                        Miston Wilson
+                    <section class="mini-section">
+                        <p class="username">
+                            <img src="./assets/css/img/avatar-4.jpg" alt="foto avatar" class = "img-avatar">
+                            Miston Wilson
+                        </p>
                         <i class="far fa-bookmark" style="color: #a3a3a3;"></i>
-                    </p>
+                    </section>
                 </div>
             </article>
         </section>
     </main>
-
+    
     <footer>
-        <hr>
         <p>
             2022 Geeks. All Rigths Reserved.
         </p>
