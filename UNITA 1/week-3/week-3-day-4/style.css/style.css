@@ -1,0 +1,31 @@
+#number-table {
+    background-color: #0c0b1d;
+    color: #ebebeb;
+    border-radius: 8px;
+    border: 8px solid #0c0b1d;
+}
+
+.day {
+    display: inline-block;
+    width: 14%;
+    height: 50px;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.day h3 {
+    text-align: center;
+    font-size: 26px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+.evidenziato {
+    background-color: yellow;
+}

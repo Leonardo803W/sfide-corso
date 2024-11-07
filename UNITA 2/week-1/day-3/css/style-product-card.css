@@ -1,0 +1,43 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+section{
+    margin: 2em;
+    background-color: #FBF7E3;
+    border-radius: 35% 35% 35% 35%;
+}
+
+img{
+    width: 100%;
+    border-radius: 40% 40% 0% 0%;
+}
+
+#conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#description{
+    margin: 2em;
+    line-height: 1.5;
+    color: #612406;
+}
+
+h2{
+    font-weight: bold;
+}
+
+button{
+    margin-bottom: 2em;
+    color: #612406;
+    background-color: #F3DF85;
+    border-color: #F3DF85;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-radius: 20px;
+}

@@ -1,0 +1,32 @@
+.buttons button.one {
+  color: black;
+  background-color: #0e6cff;
+}
+.buttons button.two {
+  color: black;
+  background-color: #ff8700;
+}
+.buttons button.three {
+  color: black;
+  background-color: #4caf50;
+}
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
+}
+
+nav {
+  margin: 1em;
+  padding: 1em;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 576px) {
+  nav ul {
+    flex-direction: row;
+  }
+}/*# sourceMappingURL=style.css.map */

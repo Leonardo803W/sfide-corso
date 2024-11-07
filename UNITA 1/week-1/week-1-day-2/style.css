@@ -1,0 +1,40 @@
+.table-info{
+    /* un bordo generico intorno all'intera tabella */
+    border: 2px solid black;
+    /* fa in modo che in caso di due bordi ravvicinati, si compattino in un unico bordo */
+    border-collapse: collapse;
+  }
+
+
+  th{
+    /* un bordo anche alla singola cella */
+    border: 1px solid black;
+    /* un padding alla singola cella */
+    padding: 10px;
+  }
+
+  td{
+    /* un bordo anche alla singola cella */
+    border: 1px solid black;
+    /* un padding alla singola cella */
+    padding: 10px;
+  }
+
+  .menu-li {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+
+  .menu-button {
+    width: 150px;
+  }
+
+  .correlati {
+    list-style: none;
+    padding: 0;
+  }
+
+  .span-color{
+    color: aquamarine"
+  }

@@ -1,0 +1,25 @@
+@import "./colori.scss";
+
+.buttons {
+    button.one {
+      color: black;
+      background-color: $colore-bottone1;
+      &:hover {
+      
+      }
+    }
+    button.two {
+      color: black;
+      background-color: $colore-bottone2;
+      &:hover {
+
+      }
+    }
+    button.three {
+      color: black;
+      background-color: $colore-bottone3;
+      &:hover {
+        
+      }
+    }
+  }

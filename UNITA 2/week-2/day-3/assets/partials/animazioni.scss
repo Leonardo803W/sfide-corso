@@ -1,0 +1,20 @@
+@import "./colori.scss";
+
+@mixin rise ($durata, $inizio, $fine, $delay, $nome){
+
+    overflow: hidden;
+    justify-content: center;
+    background-color: $bg_hero;
+    border-radius: 50%;
+    height: 100vh;
+
+    animation: name;
+    animation-duration: $durata;
+    animation-delay: $delay;
+    from {
+      transform: translateY($inizio);
+    }
+    to {
+      transform: translateY($fine);
+    }
+  }
