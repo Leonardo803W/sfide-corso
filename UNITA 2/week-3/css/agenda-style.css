@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: black;
+    color: white;
+}
+
+main{
+    border-radius: 100px;
+}
+
+footer{
+    border-radius: 100px;
+}
+
+span{
+    background-color: #00f3ff;
+    border-radius: 100px;
+}

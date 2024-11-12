@@ -45,3 +45,40 @@ cancellaButton.addEventListener('click', function () {
   }
 })
 
+let secondi = parseInt(sessionStorage.getItem('secondi')) || 0
+
+const attualeContatore = function ()
+{
+  secondi++
+  sessionStorage.setItem('secondi', secondi)
+  document.getElementById('secondi').textContent = secondi
+}
+
+setInterval(attualeContatore, 1000)
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+      body.classList.add(savedTheme);
+  } else {
+      body.classList.add("light");
+  }
+
+  toggleButton.addEventListener("click", () => {
+      
+      if (body.classList.contains("light")) {
+          body.classList.remove("light");
+          body.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+      } 
+      else 
+      {
+          body.classList.remove("dark");
+          body.classList.add("light");
+          localStorage.setItem("theme", "light");
+      }
+  });
+});
