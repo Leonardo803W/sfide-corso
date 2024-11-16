@@ -41,40 +41,45 @@
                   </div>
             </aside>
 
-            <form class="container text-center ms-2 me-2 my-auto">
-                <div  class="row">
-                    <div class="col">
-                        <div  class="col">
-                        <label for="pet-name" class="d-block mb-3 mt-3">
-                            Inserisci nome animale: 
-                        </label>
-                        <input type="text" name="pet-name" id="pet-name" required />
-                        </div>
-                        <div  class="col">
-                        <label for="pet-owner" class="d-block mb-3 mt-3">
-                            Inserisci nome proprietario: 
-                        </label>
-                        <input type="text" name="pet-owner" id="pet-owner" required />
-                        </div>
-                        <div  class="col">
-                        <label for="species" class="d-block mb-3 mt-3">
-                            Inserisci specie: 
-                        </label>
-                        <input type="text" name="species" id="species" required />
-                        </div>
-                        <div  class="col">
-                        <label for="breed" class="d-block mb-3 mt-3">
-                            Inserisci razza: 
-                        </label>
-                        <input type="text" name="breed" id="breed" required />
-                        </div>
-                        <div>
-                        <button class="m-4" id="add">Aggiungi</button>
+            <section class="container text-center ms-2 me-2 my-auto">
+                <form>
+                    <div  class="row">
+                        <div class="col">
+                            <div  class="col">
+                            <label for="pet-name" class="d-block mb-3 mt-3">
+                                Inserisci nome animale: 
+                            </label>
+                            <input type="text" name="pet-name" id="pet-name" required />
+                            </div>
+                            <div  class="col">
+                            <label for="pet-owner" class="d-block mb-3 mt-3">
+                                Inserisci nome proprietario: 
+                            </label>
+                            <input type="text" name="pet-owner" id="pet-owner" required />
+                            </div>
+                            <div  class="col">
+                            <label for="species" class="d-block mb-3 mt-3">
+                                Inserisci specie: 
+                            </label>
+                            <input type="text" name="species" id="species" required />
+                            </div>
+                            <div  class="col">
+                            <label for="breed" class="d-block mb-3 mt-3">
+                                Inserisci razza: 
+                            </label>
+                            <input type="text" name="breed" id="breed" required />
+                            </div>
+                            <div>
+                            <button class="m-4" id="add">Aggiungi</button>
+                            </div>
                         </div>
                     </div>
+                </form>
+
+                <div>
+                    <ul class="m-4" id="petList"></ul>
                 </div>
-                <ul class="m-4" id="petList"></ul>
-            </form>
+            </section>
 
             <aside>
                 <div class="card m-4 text-center">
