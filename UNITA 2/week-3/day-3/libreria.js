@@ -1,49 +1,111 @@
-const libreriaUrl = 'https://striveschool-api.herokuapp.com/books'
+const booksWrapper = document.querySelector("#books-wrapper");
+        const shoppingCart = document.querySelector("#shopping-cart");
 
-const getLibreria = function () {
+        let outerBooks = [];
+        let shoppingCartList = JSON.parse(localStorage.getItem("shoppingCart")) || [];
 
-    fetch(libreriaUrl,)
+        window.onload = () => {
+            loadBooks();
+            loadShoppingCart()
+        };
 
-    .then((response) => {
+        const loadBooks = () => {
+            fetch("https://striveschool-api.herokuapp.com/books")
+                .then(resp => resp.json())
+                .then(books => {
+                    // using books right away here
+                    displayBooks(books);
+                    // Saving a reference for later use, without needing to fetch again
+                    outerBooks = books;
+                })
+                .catch(err =>
+                    console.error(err.message)
+                )
 
-        console.log('RESPONSE', response)
-
-        if(response.ok)
-        {
-            return response.json()
         }
-        else 
-        {
-        throw new Error('Errore nella response dal server!')
+
+        function displayBooks(books) {
+            booksWrapper.innerHTML = "";
+
+            books.forEach((book) => {
+
+                const isBookInCart = shoppingCartList.findIndex(cartBook => cartBook.title === book.title) !== -1
+
+                booksWrapper.innerHTML += `
+            <div class="col">
+              <div class="card shadow-sm h-100 ${isBookInCart ? 'selected' : ''}">
+                <img src="${book.img}" class="img-fluid card-img-top" alt="${book.title
+                    }">
+                <div class="card-body">
+                  <h5 class="card-title">${book.title}</h5>
+                  <p class="card-text badge rounded-pill bg-dark mb-2">${book.category}</p>
+                  <p class="fs-4">${book.price}€</p>
+                  <div>
+                      <button class="btn btn-danger" onclick="addToCart(event, '${book.asin}')">Compra ora</button>
+                      <button class="btn btn-outline-danger" onclick="skipMe(event)">
+                        Scarta
+                      </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+            });
         }
-    })
 
-    .then((libreriaObject) => {
+        const skipMe = (event) => {
+            event.target.closest('.col').remove()
+        }
 
-        console.log(libreriaObject)
-        
-        const title0 = document.getElementById('card-title0')
-        const price0 = document.getElementById('card-price0')
-        title0.innerText = libreriaObject[0].title
-        price0.innerText = libreriaObject[0].price
-        
-        const title1 = document.getElementById('card-title1')
-        const price1 = document.getElementById('card-price1')
-        title1.innerText = libreriaObject[1].title
-        price1.innerText = libreriaObject[1].price
-        
-        const title2 = document.getElementById('card-title2')
-        const price2 = document.getElementById('card-price2')
-        title2.innerText = libreriaObject[2].title
-        price2.innerText = libreriaObject[2].price
+        const addToCart = (event, asin) => {
+            console.log(asin);
+            // const book = outerBooks.filter( book => book.asin === asin)[0]
+            const book = outerBooks.find((book) => book.asin === asin);
+            shoppingCartList.push(book);
+            console.log(shoppingCartList);
+            localStorage.setItem("shoppingCart", JSON.stringify(shoppingCartList))
 
-    })
+            loadShoppingCart();
 
-    .catch((err) => {
+            event.target.closest(".card").classList.add("selected");
+        }
 
-        console.log(err)
-    })
-}
+        const loadShoppingCart = () => {
+            shoppingCart.innerHTML = "<h3>Carrello</h3>";
 
-getLibreria()
+            shoppingCartList.forEach((book) => {
+                shoppingCart.innerHTML += `
+            <div class="shopping-item">
+              <div class="d-flex align-items-start gap-2">
+                    <img src=${book.img}  class="img-fluid" width="60" />
+                  <div class="flex-grow-1">
+                      <p class="mb-2">
+                        ${book.title}
+                      </p>
+                      <div class="d-flex justify-content-between">
+                          <p class="fw-bold">
+                            ${book.price}€
+                          </p>
+                          <div>
+                              <div>
+                                <button class="btn btn-danger" onclick="deleteItem('${book.asin}')">Elimina </button>
+                              </div>
+                          </div>
+                      </div >
+                  </div >
+              </div >
+            </div>
+          `;
+            });
+        }
 
+        function deleteItem(asin) {
+            const index = shoppingCartList.findIndex((book) => book.asin === asin);
+
+            if (index !== -1) {
+                shoppingCartList.splice(index, 1);
+                localStorage.setItem("shoppingCart", JSON.stringify(shoppingCartList))
+            }
+
+            loadShoppingCart();
+        }
