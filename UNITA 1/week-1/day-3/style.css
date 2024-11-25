@@ -30,10 +30,11 @@ body{
 
 .introduction {
     color: #0baf0b;
-    background-color: #ffffa8;
+    background-color: #ffffa857;
     margin: 0%;
-    border-top: solid #f0f000;
+    border-top: solid #f0f00030;
     text-align: center;
+    padding: 1em;
 }
 
 .foto-principale{
@@ -51,6 +52,24 @@ body{
   font-style: 24px;
 }
 
+ul{
+    padding: 0;
+}
+
 #principale li{
     margin: 8px;
+    margin-left: 2em;
+}
+
+ol{
+    padding: 0;
+}
+
+#Focaccia li{
+    font-size: larger;
+    font-weight: bold;
+}
+
+#Focaccia p{
+    margin-left: ;
 }
