@@ -6,7 +6,12 @@ import CustomNavbar from './components/CustomNavbar';
 import MyFooter from './components/MyFooter';
 import Welcome from './components/Welcome';
 import BookList from './components/BookList'
-import books from './data/history.json'
+
+import fantasy from './data/fantasy.json'
+import history from './data/history.json'
+import horror from './data/horror.json'
+import romance from './data/romance.json'
+import scifi from './data/scifi.json'
 
 function App() {
   return (
@@ -23,11 +28,11 @@ function App() {
       <Welcome/>
 
       <Container  className=' h-50 text-center'>
-            <h1 className=' p-4'>
+            <h1 className=' p-4 text-light'>
               My Book Collection
             </h1>
 
-            <BookList books={books} />
+            <BookList fantasy={fantasy} history = {history} horror = {horror} romance = {romance} scifi = { scifi} />
         </Container>
 
       </main>

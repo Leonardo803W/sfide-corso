@@ -3,47 +3,44 @@ import { Card, Button } from 'react-bootstrap';
 
 class SingleBook extends Component 
 {
-  constructor(props) 
-  {
+    state = {
+        selected: false,
+    }
 
-    super(props);
-    this.state = {selected: false,};
-  }
-
-  toggleSelect = () => 
-    {
-        this.setState((prevState) => ({ selected: !prevState.selected }));
+    toggleSelect = () => {
+        this.setState(prevState => ({
+            selected: !prevState.selected
+        }));
     };
 
-  render() 
-  {
-    const { title } = this.props;
-    const { img } = this.props;
-    const { price } = this.props;
-    const { category } = this.props;
-    const { selected } = this.state;
-    
-    return (
-      <Card style={{ 
-          border: selected ? '2px solid red' : 'none',
-          cursor: 'pointer'
-        }}
-        onClick = {this.toggleSelect}
-      >
-        <Card.Img src = {img} alt = {img + title}/>
-        <Card.Body>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>
-                price {price}
-            </Card.Text>
-            <Card.Text>
-                category {category}
-            </Card.Text>
-            <Button variant="primary">push me</Button>
-        </Card.Body>
-      </Card>
-    );
-  }
+    render() 
+    {
+        const { title, img, price, category } = this.props;
+        const { selected } = this.state;
+        const borderColor = selected ? 'red 2px solid' : 'black 2px solid';
+
+        return (
+            <Card style={{ 
+                    border: borderColor,
+                    cursor: 'pointer'
+                }}
+                className=' m-2'
+                onClick={this.toggleSelect}
+            >
+                <Card.Img src={img} alt={img + title} />
+                <Card.Body>
+                    <Card.Title>{title}</Card.Title>
+                    <Card.Text>
+                        Price: {price}$
+                    </Card.Text>
+                    <Card.Text>
+                        Category: {category}
+                    </Card.Text>
+                    <Button variant="primary">Push me</Button>
+                </Card.Body>
+            </Card>
+        );
+    }
 }
 
-export default SingleBook;
+export default SingleBook
