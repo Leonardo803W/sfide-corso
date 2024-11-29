@@ -1,45 +1,22 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row } from 'react-bootstrap'
-
-import CustomNavbar from './components/CustomNavbar';
-import MyFooter from './components/MyFooter';
-import Welcome from './components/Welcome';
-import AllTheBooks from './components/AllTheBooks';
+import './App.css'
+import MyNav from './components/MyNav'
+import MyFooter from './components/MyFooter'
+import Welcome from './components/Welcome'
+import AllTheBooks from './components/AllTheBooks'
+import { Container } from 'react-bootstrap'
 
 function App() {
   return (
-    <div className="App">
-
-      <header>
-
-        <CustomNavbar/>
-
-      </header>
-
-      <main>
-
-      <Welcome/>
-
+    <>
+      <MyNav />
       <Container>
-          {/* <div class="row"> */}
-          <Row>
-              <AllTheBooks/>
-          </Row>
-        </Container>
-
-      </main>
-
-      <footer>
-
-        <MyFooter/>
-
-      </footer>
-
-    </div>
-  );
+        <Welcome />
+        <AllTheBooks />
+      </Container>
+      <MyFooter />
+    </>
+  )
 }
 
-
-
-export default App;
+export default App

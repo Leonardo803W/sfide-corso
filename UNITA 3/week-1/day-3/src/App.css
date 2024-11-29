@@ -1,3 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -19,7 +28,15 @@
   color: #61dafb;
 }
 
-main{
-  background-image: url(https://www.creativefabrica.com/wp-content/uploads/2023/04/03/Fantasy-Library-Graphic-66069639-1.png);
-  background-size: contain;
+.book-cover {
+  height: 100%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

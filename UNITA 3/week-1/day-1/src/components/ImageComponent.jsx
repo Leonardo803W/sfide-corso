@@ -1,16 +1,12 @@
-import { Component } from "react";
+import { Component } from 'react'
 
 class ImageComponent extends Component {
-    render() {
-
-        const {src, alt} = this.props
-
-        return (
-            <>
-                <img src={src} alt={alt} className="rotating-image" />
-            </>
-        )
-    }
+  render() {
+    return (
+      // we need the src and the alt attributes
+      <img src={this.props.imageSrc} alt={this.props.altText} />
+    )
+  }
 }
 
 export default ImageComponent

@@ -1,29 +1,9 @@
-import {Alert} from 'react-bootstrap'
-import { useState } from 'react';
+import { Alert } from 'react-bootstrap'
 
-const Welcome = () => {
-
-    const [show, setShow] = useState(true)
-
-    const handleClose = () => 
-    {
-        setShow(false)
-    };
-
-    return (
-        show && ( <div className=' text-center'>
-                <Alert variant="success" className="alert-animation">
-                <Alert.Heading>Welcome Adventure</Alert.Heading>
-                <p>
-                    The Great Library
-                </p>
-                <button id='closWelcome' onClick={handleClose}>
-                    chiudi
-                </button>
-                </Alert>
-            </div>
-        )
-    )
-}
+const Welcome = () => (
+  <Alert className="text-center">
+    <h1>Benvenuti in EpiBooks!</h1>
+  </Alert>
+)
 
 export default Welcome
