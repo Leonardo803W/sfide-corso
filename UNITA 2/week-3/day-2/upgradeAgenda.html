@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+</head>
+<body>
+    <header>
+        <h1>
+            la tua agenda ti aspetta
+        </h1>
+
+        <p id="introduction">
+            agenda <span id="data"></span>
+        </p>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col col-12 col-md-8 col-lg-6">
+                <form id="main-form">
+
+                    <div class="mb-3">
+                        <label class="form-label" for="firstName">Nome</label>
+                        <input
+                          class="form-control"
+                          id="firstName"
+                          type="text"
+                          placeholder="Mario"
+                          required
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label" for="lastName">Cognome</label>
+                        <input
+                          class="form-control"
+                          id="lastName"
+                          type="text"
+                          placeholder="Rossi"
+                          required
+                        />
+                      </div>
+                      
+                      <div class="mb-3">
+                        <label class="form-label" for="phone">Telefono</label>
+                        <input
+                          class="form-control"
+                          id="phone"
+                          type="tel"
+                          placeholder="320xxxxx"
+                          required
+                        />
+                      </div>
+
+                  <div class="alert alert-success d-none mt-3" role="alert">
+                    Contenuto salvato!
+                  </div>
+
+                  <div class="alert alert-info d-none mt-3" role="alert">
+                    Contenuto caricato!
+                  </div>
+
+                  <div class="alert alert-warning d-none mt-3" role="alert">
+                    Memoria resettata!
+                  </div>
+
+                  <div class="alert alert-danger d-none mt-3" role="alert">
+                    Non esiste un contenuto salvato!
+                  </div>
+
+                  <div class="py-3 d-flex justify-content-around w-50 mx-auto">
+                    <button type="button" id="save" class="btn btn-success">
+                      SALVA
+                    </button>
+
+                    <button type="button" id="load" class="btn btn-info">
+                      CARICA
+                    </button>
+
+                    <button type="button" id="reset" class="btn btn-warning">
+                      RESET
+                    </button>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+    </main>
+
+    <footer>
+        <div class="row justify-content-center g-3" id="cards-container">
+            <!-- qui ci andranno le card dei contatti-->
+        </div>
+    </footer>
+
+    <script src="./apgradeAgenda.js"></script>
+</body>
+</html>

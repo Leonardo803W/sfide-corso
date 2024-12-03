@@ -22,9 +22,14 @@ class User {
     }
   }
   
-  x = new User('Eros', 'Ramazzotti', 50, 'Roma')
-  y = new User('Vasco', 'Rossi', 65, 'Zocca')
-  z = new User('Luciano', 'Ligabue', 60, 'Correggio')
+  x = new User('Eros', 'Ramazzotti', '50', 'Roma')
+  y = new User('Vasco', 'Rossi', '65', 'Zocca')
+  z = new User('Luciano', 'Ligabue', '60', 'Correggio')
+  m = new User('Luciano', 'Ligabue', '60', 'Correggio')
+  console.log(x)
+  console.log(y)
+  console.log(z)
   console.log(x.compareAge(y))
   console.log(y.compareAge(z))
   console.log(z.compareAge(x))
+  console.log(z.compareAge(m))
