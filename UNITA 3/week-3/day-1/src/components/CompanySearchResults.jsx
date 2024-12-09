@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Job from "./Job";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { Container, Row, Col, Button } from "react-bootstrap"
+import Job from "./Job"
+import { useParams } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import { addFavorite, removeFavorite } from './redux/favoritesSlice'
 
 const CompanySearchResults = () => {
-  const [jobs, setJobs] = useState([]);
-  const params = useParams();
+  const [jobs, setJobs] = useState([])
+  const params = useParams()
+  const dispatch = useDispatch()
+  const favorites = useSelector(state => state.favorites)
 
-  const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
+  const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company="
 
   useEffect(() => {
     getJobs();
@@ -18,13 +22,22 @@ const CompanySearchResults = () => {
     try {
       const response = await fetch(baseEndpoint + params.company);
       if (response.ok) {
-        const { data } = await response.json();
+        const { data } = await response.json()
         setJobs(data);
       } else {
-        alert("Error fetching results");
+        alert("Error fetching results")
       }
     } catch (error) {
-      console.log(error);
+      console.log(error)
+    }
+  };
+
+  const toggleFavorite = () => {
+    const companyName = params.company;
+    if (favorites.includes(companyName)) {
+      dispatch(removeFavorite(companyName))
+    } else {
+      dispatch(addFavorite(companyName))
     }
   };
 
@@ -33,6 +46,9 @@ const CompanySearchResults = () => {
       <Row>
         <Col className="my-3">
           <h1 className="display-4">Job posting for: {params.company}</h1>
+          <Button onClick={toggleFavorite}>
+            {favorites.includes(params.company) ? "Remove from Favorites" : "Add to Favorites"}
+          </Button>
           {jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}
@@ -42,4 +58,4 @@ const CompanySearchResults = () => {
   );
 };
 
-export default CompanySearchResults;
+export default CompanySearchResults
