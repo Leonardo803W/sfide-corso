@@ -51,8 +51,8 @@ else{
 }
 
 
-intero1 = 4
-intero2 = 8
+intero1 = 12
+intero2 = 4
 let sum = intero1 + intero2
 let sottrazione = intero1 - intero2
 if(sum === 8){
@@ -60,6 +60,9 @@ if(sum === 8){
 }
 if(sottrazione === 8){
   console.log("la sotrazione dei due valori e uguale a 8 8")
+}
+else{
+  console.log("ne la addizione ne la sottrazione hanno come risultato 8")
 }
 
 /* ESERCIZIO 5
@@ -69,7 +72,7 @@ if(sottrazione === 8){
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let totalShoppingCart = 60
+let totalShoppingCart = 40
 const spedizione = 10
 let total = totalShoppingCart + spedizione
 if(totalShoppingCart > 50)
@@ -105,22 +108,46 @@ if(totalShoppingCart > 50)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 let numero1 = 10
-let numero2 = 2
-let numero3 = 8
+let numero2 = 400
+let numero3 = 200
 let numeroTemporaneo
-if(numero2 < numero1){
-  numeroTemporaneo = numero1
-  numero1 = numero2
-  numero2 = numeroTemporaneo
+if(numero1 < numero2){
 
-  if(numero3 < numero2){
-    numeroTemporaneo = numero2
-    numero2 = numero3
-    numero3 = numeroTemporaneo
+  if(numero1 < numero3){
 
-    console.log("l'ordine crescente e: " + numero1 + ' ' + numero2  + ' ' + numero3)
+    if(numero2 < numero3){
+      console.log("l'ordine crescente e: " + numero1 + ' ' + numero2  + ' ' + numero3)
+    }
+    else{
+      console.log("l'ordine crescente e: " + numero1 + ' ' + numero3  + ' ' + numero2)
+    }
   }
 }
+if(numero2 < numero1){
+
+  if(numero2 < numero3){
+
+    if(numero1 < numero3){
+      console.log("l'ordine crescente e: " + numero2 + ' ' + numero1  + ' ' + numero3)
+    }
+    else{
+      console.log("l'ordine crescente e: " + numero2 + ' ' + numero3  + ' ' + numero1)
+    }
+  }
+}
+if(numero3 < numero1){
+
+  if(numero3 < numero2){
+
+    if(numero1 < numero2){
+      console.log("l'ordine crescente e: " + numero3 + ' ' + numero1  + ' ' + numero2)
+    }
+    else{
+      console.log("l'ordine crescente e: " + numero3 + ' ' + numero2  + ' ' + numero1)
+    }
+  }
+}
+
 
 /* ESERCIZIO 8
   Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
@@ -128,14 +155,14 @@ if(numero2 < numero1){
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 let verifica = 5
-console.log(("il valore e un number o string?") + ' ' + typeof verifica);
+console.log(("il valore e un number o string?") + ' ' + 'e un' + ' ' + typeof verifica);
 
 /* ESERCIZIO 9
   Crea un algoritmo per controllare se un numero fornito sia pari o dispari (suggerimento: cerca l'operatore modulo su un motore di ricerca)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const controllore = 8
+const controllore = 7
 if(controllore % 2 === 0){
   console.log("il valore " + controllore + " e pari")
 }
@@ -156,7 +183,7 @@ else{
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let val = 1
+let val = 90
 if (val < 10) {
       console.log("Meno di 10");
   }
@@ -195,7 +222,7 @@ console.log(me)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 me.skills.pop()
-console.log(me);
+console.log(me.skills);
 
 /* ESERCIZIO 14
   Scrivi del codice per creare un array inizialmente vuoto. Riempilo successivamente con i numeri da 1 a 10.
