@@ -6,10 +6,10 @@
 let num1 = 5
 let num2 = 10
 if(num1 > num2){
-  console.log("il numero più grande e: " + num1)
+  console.log("il numero più grande e:" + ' ' + num1)
 }
 else{
-  console.log("il numero più grande e" + num2)
+  console.log("il numero più grande e" + ' ' + num2)
 }
 
 /* ESERCIZIO 2
@@ -28,7 +28,7 @@ if(num4 !== num3){
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let num5 = 50
+let num5 = 40
 if(num5 % 5 === 0){
   console.log("il valore " + num5 + " è perfettamente divisibile per 5")
 }
@@ -41,14 +41,18 @@ if(num5 % 5 === 0){
 let intero1 = 8
 let intero2 = 9
 if(intero1 === 8){
-  console.log("il primo valore e 8")
+  console.log("il primo valore e uguale a 8")
+}
+if(intero2 === 8){
+  console.log("il secondo valore e uguale a 8")
 }
 else{
-  console.log("il secondo valore e 8")
+  console.log("nessuno dei due valori e uguale a 8")
 }
 
+
 intero1 = 4
-intero2 = 4
+intero2 = 8
 let sum = intero1 + intero2
 let sottrazione = intero1 - intero2
 if(sum === 8){

@@ -38,6 +38,8 @@ console.log(myName)
 let numero1 = 12
 let numero2 = 20
 let sum = numero1 + numero2
+//let sum = 12 + 20
+//console.log(sum = 12 + 20)
 console.log(sum)
 
 /* ESERCIZIO 4
@@ -46,6 +48,7 @@ console.log(sum)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 let x = 12 
+//console.log(x = 12)
 console.log(x)
 
 /* ESERCIZIO 5
@@ -64,6 +67,7 @@ console.log(x)
 /* SCRIVI QUI LA TUA RISPOSTA */
 let numero3 = 4
 let differenza = x - numero3
+//console.log(differenza = x - 4)
 console.log(differenza)
 
 /* ESERCIZIO 7

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const Favorites = () => {
+  
   const favorites = useSelector(state => state.favorites)
 
   return (
