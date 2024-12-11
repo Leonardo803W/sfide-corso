@@ -51,9 +51,10 @@ var numbers1 = [1, 2, 3];
 var numbers2 = [1, 2, 3];
 console.log(numbers1);
 console.log(numbers2);
-/*11) Crea una tupla per definire un array di 5 elementi, i primi 3 devono essere stringhe e gli ultimi due numeri.
-
-12) Qual è la differenza tra type e interface?
+//11) Crea una tupla per definire un array di 5 elementi, i primi 3 devono essere stringhe e gli ultimi due numeri.
+var tupla = ['marco', 'giovanni', 'sara', 10, 50000];
+console.log(tupla);
+/*12) Qual è la differenza tra type e interface?
 
 13) Definisci un'interfaccia in TypeScript per un oggetto dotato di proprietà "firstname", "lastname", e "age".
 

@@ -95,9 +95,13 @@ const numbers2: SpecialType [] = [1, 2, 3]
 console.log(numbers1)
 console.log(numbers2)
 
-/*11) Crea una tupla per definire un array di 5 elementi, i primi 3 devono essere stringhe e gli ultimi due numeri.
+//11) Crea una tupla per definire un array di 5 elementi, i primi 3 devono essere stringhe e gli ultimi due numeri.
 
-12) Qual è la differenza tra type e interface?
+const tupla: [string, string, string, number, number] = ['marco', 'giovanni', 'sara', 10, 50000]
+
+console.log(tupla)
+
+/*12) Qual è la differenza tra type e interface?
 
 13) Definisci un'interfaccia in TypeScript per un oggetto dotato di proprietà "firstname", "lastname", e "age".
 
