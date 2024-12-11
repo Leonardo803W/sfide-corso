@@ -40,15 +40,18 @@ variabile(500);
 variabile('salve');
 variabile(undefined);
 console.log('come visto sopra la variabile e sempre la stessa, questo perche le Type Union sono variabili che possono essere piu tipi, ovvero un number o una stringa o un undefinde anziche soltanto uno di essi');
-/*8) Crea una variabile che possa contenere un numero, null o undefined.
-
-9) Crea un tipo per rappresentare i giorni della settimana usando union di stringhe letterali.
-
-10) Tipizza il seguente array di numeri nei due modi possibili:
-
-const numbers = [1, 2, 3]
-
-11) Crea una tupla per definire un array di 5 elementi, i primi 3 devono essere stringhe e gli ultimi due numeri.
+//8) Crea una variabile che possa contenere un numero, null o undefined.
+var number = function (n) {
+    console.log('la variabile n: ' + n);
+};
+number(1000);
+number(undefined);
+number(null);
+var numbers1 = [1, 2, 3];
+var numbers2 = [1, 2, 3];
+console.log(numbers1);
+console.log(numbers2);
+/*11) Crea una tupla per definire un array di 5 elementi, i primi 3 devono essere stringhe e gli ultimi due numeri.
 
 12) Qual è la differenza tra type e interface?
 
