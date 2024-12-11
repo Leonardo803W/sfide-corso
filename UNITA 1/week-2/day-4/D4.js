@@ -11,6 +11,27 @@
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const num1 = 8
+const num2 = 8
+
+const crazySum = (num1, num2) => {
+
+    let sum = 0
+
+    if(num1 === num2)
+    {
+        sum = num1 + num2
+        sum = sum * 3
+
+        return sum
+    }
+
+    sum = num1 + num2
+
+    return sum
+}
+
+console.log(crazySum(num1, num2))
 
 /* ESERCIZIO 3
  Scrivi una funzione di nome "crazyDiff" che calcola la differenza assoluta tra un numero fornito come parametro e 19.
@@ -18,6 +39,27 @@
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const num3 = 50
+
+const crazyDiff = (num3) => {
+
+    const diff = 19
+    let total = 0
+
+    if(num3 > diff)
+    {
+        total = num3 - diff
+        total = total * 3
+
+        return total
+    }
+
+    total = num3 - 19
+
+    return total
+}
+
+console.log(crazyDiff(num3))
 
 /* ESERCIZIO 4
  Scrivi una funzione di nome "boundary" che accetta un numero intero n come parametro, e ritorna true se n è compreso tra 20 e 100 (incluso) oppure
@@ -25,6 +67,9 @@
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const boundary = (n) => {
+    
+}
 
 /* ESERCIZIO 5
  Scrivi una funzione di nome "epify" che accetta una stringa come parametro.
