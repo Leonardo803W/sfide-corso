@@ -16,12 +16,32 @@
 /* SCRIVI QUI LA TUA RISPOSTA */
 const carello = [
     {
-        price: 22,
-        name: "mobile",
+        price: 359,
+        name: "PC",
         id: 111,
         quantity: 3,
+    },
+    {
+        price: 50,
+        name: "cuffie",
+        id: 112,
+        quantity: 2,
     }
 ]
+
+const shoppingCart = function (cart) {
+
+    let total = 0
+
+    for(let i = 0; i < cart[1].quantity; i++)
+    {
+        total += cart[1].price
+    }
+
+    console.log('la spesa totale e di: ' + total)
+}
+
+shoppingCart(carello)
 
 /* EXTRA 3
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -30,14 +50,15 @@ const carello = [
 
 const addToShoppingCart = function (){
 
-    newOggetto = {price: 5000, name: "macchina", id: 112, quantity: 3}
+    newOggetto = {price: 5000, name: "macchina", id: 113, quantity: 5}
+    
     carello.push(newOggetto)
 
     let sum = 0
 
     for(let i = 0; i < carello.length; i++)
     {
-        sum = sum + carello[i].quantity
+        sum = sum + carello[i]
     }
 
     console.log(sum)
