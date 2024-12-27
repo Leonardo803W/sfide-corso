@@ -48,6 +48,7 @@ shoppingCart(carello)
  Crea una funzione chiamata "addToShoppingCart" che riceve un nuovo oggetto dello stesso tipo, lo aggiunge a "shoppingCart" e ritorna il nuovo numero totale degli elementi.
 */
 
+/* SCRIVI QUI LA TUA RISPOSTA */
 const addToShoppingCart = function (){
 
     newOggetto = {price: 5000, name: "macchina", id: 113, quantity: 5}
@@ -66,14 +67,23 @@ const addToShoppingCart = function (){
 
 addToShoppingCart(carello)
 
-/* SCRIVI QUI LA TUA RISPOSTA */
-
 /* EXTRA 4
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
  Crea una funzione chiamata "maxShoppingCart" che riceve l'array "shoppingCart" e ritorna l'oggetto più costoso in esso contenuto.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+
+const maxShoppingCart = function (car) {
+
+    for(let i = 0; i < car.length; i++)
+    {
+
+    }
+}
+
+maxShoppingCart(carello)
 
 /* EXTRA 5
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
