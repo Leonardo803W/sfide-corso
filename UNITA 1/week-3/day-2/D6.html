@@ -79,6 +79,7 @@
         >
       </h3>
     </footer>
+    
     <script>
       /* ESERCIZIO 1
        Scrivi una funzione per cambiare il titolo della pagina in qualcos'altro
@@ -105,7 +106,17 @@
        Scrivi una funzione che cambi il testo dei p figli di un div
       */
 
-      const changePcontent = function () {}
+      const changePcontent = function () {
+
+        const allP = document.querySelectorAll('p')
+
+        for(let i = 0; i < allP.length; i++)
+        {
+          allP[i].innerText = 'ciao a tutti'
+        }
+      }
+
+      changePcontent()
 
       /* ESERCIZIO 4
        Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
@@ -130,31 +141,76 @@
        Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
     */
 
-      const addToTheSecond = function () {}
+    const addToTheSecond = function () {
+    
+    const allLists = document.getElementsByTagName('ul')
+    
+      if (allLists.length >= 2) {
+          
+          const secondList = allLists[1]
+          
+          const newListItem = document.createElement('li')
+
+          newListItem.innerText = "Nuovo elemento per la seconda lista"
+          
+          secondList.appendChild(newListItem)
+      } else {
+          console.log("Non ci sono abbastanza liste non ordinate.")
+      }
+    }
+
+
+    addToTheSecond()
 
       /* ESERCIZIO 6
        Scrivi una funzione che aggiunga un paragrafo al primo div
     */
 
       const addParagraph = function () {
+
+        const allDiv = document.getElementsByTagName('div')
+
+        const newParagrafo = allDiv[0]
+
         const newParagraph = document.createElement('p')
 
-        newParagraph.innerText = 'salve a tutti'
+        newParagraph.innerText = 'nuovo paragrafo'
         
-        newParagraph.classList.add('div')
+        newParagrafo.appendChild(newParagraph)
       }
+
+      addParagraph()
 
       /* ESERCIZIO 7
        Scrivi una funzione che faccia scomparire la prima lista non ordinata
     */
 
-      const hideFirstUl = function () {}
+      const hideFirstUl = function () {
+
+        const allLists = document.getElementsByTagName('ul')
+          
+        const firsList = allLists[0]
+          
+        firsList.style.display = 'none'
+      }
+
+      hideFirstUl()
 
       /* ESERCIZIO 8 
        Scrivi una funzione che renda verde il background di ogni lista non ordinata
       */
 
-      const paintItGreen = function () {}
+      const paintItGreen = function () {
+
+        const allLists = document.getElementsByTagName('ul')
+          
+        for (let i = 0; i < allLists.length; i++) 
+        {
+          allLists[i].style.background = 'green';
+        }
+      }
+
+      paintItGreen()
 
       /* ESERCIZIO 9
        Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
