@@ -306,11 +306,31 @@ nomiFilm(movies)
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
-*/
+*/ 
+const filmMilennio = ( array ) => {
+
+  let filmRecenti = []
+
+  filmRecenti = array.filter(elemento => elemento.Year >= 2000)
+
+  console.log(filmRecenti)
+}
+
+filmMilennio(movies)
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+const sumYear = (array) => {
+
+  let sum = 0
+
+  sum = array.reduce((acc, curr) => acc + parseInt(curr.Year), 0)
+
+  console.log(`la somma totale di tutti gli anni dei film e: ${sum}`)
+}
+
+sumYear(movies)
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
