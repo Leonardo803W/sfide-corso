@@ -84,5 +84,16 @@ public class Main {
 
         //esercizio 3.3:
 
+        double a = 2.5;
+        double b = 4.2;
+        double c = 5.6;
+
+        double perimetro = a + b + c;
+        System.out.println("Il perimetro del triangolo è: " + perimetro);
+
+        double s = perimetro / 2;
+        double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+        System.out.println("L'area del triangolo è: " + area);
     }
 }
