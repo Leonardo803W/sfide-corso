@@ -19,12 +19,12 @@ public class Main {
 
         System.out.println("il prodotto dei numeri e: " + intero1 * intero2);
 
-        //esercizio 1.2:
+//esercizio 1.2:
 
         String world = "ciao";
         int number = 6;
 
-        System.out.println(world + number);
+        System.out.println(world + " " + number);
 
         //esercizio 1.3:
 
@@ -57,8 +57,8 @@ public class Main {
         System.out.println("terza frase: ");
         String three = scanner.nextLine();
 
-        System.out.println("concatenazione: " + one + two + three);
-        System.out.println("concatenzaione inversa: " + three + two + one);
+        System.out.println("concatenazione: " + one + " " + two + " " + three);
+        System.out.println("concatenzaione inversa: " + three + " " + two + " " + one);
 
         //esercizio 3.1:
 
