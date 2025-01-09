@@ -1,7 +1,5 @@
 package Esercizio2;
 
-import java.util.Arrays;
-
 public class Sim {
 
     private String telefono;

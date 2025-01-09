@@ -19,8 +19,8 @@ public class Carello {
         this.cliente = cliente;
     }
 
-    public Articolo[] getElencoArticoli() {
-        return elencoArticoli;
+    public void getElencoArticoli() {
+        System.out.println("prodotti nel carello attualmente: " + elencoArticoli.length);
     }
 
     public void setElencoArticoli(Articolo[] elencoArticoli) {
@@ -37,13 +37,14 @@ public class Carello {
 
             if (disponibilita == 0)
             {
-                System.out.println("Abbiamo terminato la disponibilità di: " + elencoArticoli[i].getName());
+                System.out.println("Abbiamo terminato la disponibilità di: " + elencoArticoli[i].getNome());
             }
             else
             {
                 total += elencoArticoli[i].getPrice();
             }
         }
-        return  total;
+        System.out.println("totale della spesa: " + total);
+        return total;
     }
 }

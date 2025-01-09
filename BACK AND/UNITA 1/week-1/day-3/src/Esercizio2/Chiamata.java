@@ -1,7 +1,5 @@
 package Esercizio2;
 
-import java.util.Locale;
-
 public class Chiamata {
 
     private String telefonata;
