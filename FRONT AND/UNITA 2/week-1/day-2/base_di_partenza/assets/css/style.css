@@ -2,7 +2,7 @@
 
 body {
   font-family: Poppins, "Helvetica Neue", sans-serif;
-  line-height: 1.6;
+  line-height: 1.3;
   padding: 15px;
   background-image: url("../img/sfondo.png");
   background-position: center center;
@@ -109,26 +109,32 @@ header {
     z-index: 1;
 }
 
+
+
 @media screen and (min-width: 800px) {
   header {
     padding: 1em;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  header .brand {
+    display: inline-flex;
+    align-items: center;
   }
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (min-width: 1199px) {
   header .brand img {
-    margin-bottom: 20px;
+    margin-bottom: 2em;
   }
 }
 
 @media screen and (min-width: 1200px) {
   header {
     text-align: left;
-  }
-  header .brand,
-  header nav,
-  header .brand p {
-    display: inline-block;
   }
 
   header .brand {
@@ -174,31 +180,30 @@ main {
 
 #span {
   position: relative;
-  z-index: 1;
   white-space: nowrap;
 }
 
 h1 img {
   position: absolute;
     right: 14%;
-    top: 10.8%;
-    width: 78%;
+    left: 1%;
+    bottom: -14%;
+    width: 100%;
     opacity: 0.5;
+    display: block;
 }
 
 @media screen and (min-width: 576px) {
   h1 img {
-    right: 24%;
-    top: 13.6%;
-    width: 70%;
+    bottom: -16%;
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 768px) {
   h1 img {
-    right: 22%;
-    top: 9.1%;
-    width: 35%;
+    position: absolute;
+    bottom: -14%;
   }
 }
 
@@ -253,6 +258,9 @@ ol,
 dl,
 blockquote {
   margin-bottom: 1.2em;
+  margin-top: 2em;
+  font-size: medium;
+  line-height: 1.6;
 }
 
 h1 + p {
@@ -281,6 +289,7 @@ h1 + p {
   ul,
   ol {
     font-size: 1.2rem;
+    margin-top: 1em;
   }
 
   h2 {
