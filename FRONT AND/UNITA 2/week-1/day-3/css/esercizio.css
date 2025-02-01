@@ -1,0 +1,31 @@
+aside section{
+    display: flex;
+    justify-content: space-around;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: #FBF7E3;
+    font-family: sans-serif;
+    align-items: center;
+    border-radius: 40px 40px 40px 40px;
+}
+
+aside img{
+    height: 3em;
+}
+
+aside p{
+    background-color: #F3DF85;
+    margin: 0.5em;
+    padding: 0.5em;
+    color: #612406;
+    border-radius: 40px 40px 40px 40px;
+}
+
+#central{
+    background-color: #F3DF85;
+    margin: 0.5em;
+    padding: 0.5em;
+    color: #612406;
+    display: flex;
+    align-items: center;
+}

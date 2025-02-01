@@ -1,0 +1,30 @@
+body{
+    font-family: sans-serif;
+}
+
+section {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FBF7E3;
+    padding: 1em;
+}
+
+img {
+    width: 100%;
+}
+
+#description {
+    padding-left: 1em;
+}
+
+#description h2 {
+    color: #612406;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+#description p {
+    color: #612406;
+    margin-bottom: 3em;
+    font-size: small;
+}

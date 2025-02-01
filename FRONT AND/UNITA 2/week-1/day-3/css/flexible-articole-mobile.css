@@ -1,0 +1,32 @@
+body{
+    font-family: sans-serif;
+    margin: 1em;
+}
+
+section {
+    background-color: #FBF7E3;
+    padding: 1em;
+}
+
+img {
+    width: 100%;
+}
+
+#description {
+    padding-left: 1em;
+}
+
+#description h2 {
+    color: #612406;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+#description p {
+    color: #612406;
+    margin-bottom: 2em;
+    font-size: small;
+    line-height: 1.5;
+    padding-right: 1em;
+}
