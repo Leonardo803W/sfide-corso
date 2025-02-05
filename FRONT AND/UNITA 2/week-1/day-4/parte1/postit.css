@@ -1,0 +1,26 @@
+body{
+    background-color: #736d4a;
+    padding: 2em;
+}
+
+main{
+    display: grid;
+}
+
+section{
+    display: inline-flex;
+}
+
+div{
+    margin: 1em;
+    padding: 1em;
+}
+
+h3{
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+p{
+    font-size: small;
+}
