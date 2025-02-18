@@ -1,17 +1,19 @@
-CREATE TABLE post (
+CREATE TABLE authors (
     id SERIAL PRIMARY KEY,
-    categoria VARCHAR(50) NOT NULL,
-    titolo VARCHAR(50) NOT NULL,
-    contenuto VARCHAR(50) NOT NULL,
-	tempo_di_lettura INTEGER NOT NULL,
-	autore_id INT,
-	FOREIGN fk_post KEY (autore_id) REFERENCES autore(id)
-);
-
-CREATE TABLE autore (
-    id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    cognome VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    surname VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    data_di_nascita DATE NOT NULL
-);
+	avatar VARCHAR(100) NOT NULL,
+    date_of_birth DATE NOT NULL
+)
+
+CREATE TABLE blogposts (
+    id SERIAL PRIMARY KEY,
+    category VARCHAR(50) NOT NULL,
+    title VARCHAR(50) NOT NULL,
+	cover VARCHAR(100) NOT NULL,
+    content VARCHAR(50) NOT NULL,
+	reading_time INTEGER NOT NULL,
+	authors_id INT,
+	FOREIGN KEY (authors_id) REFERENCES authors(id)
+)

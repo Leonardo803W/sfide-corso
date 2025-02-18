@@ -23,12 +23,11 @@ class Pet {
 
     if (this.ownerName === anotherPet.ownerName) 
     {
-      
-      return true
+      return ownerList.innerText = "ha lo stesso padrone"
     } 
     else 
     {
-      return false
+      return ownerList.innerText = "non ha lo stesso padrone"
     }
   }
 }

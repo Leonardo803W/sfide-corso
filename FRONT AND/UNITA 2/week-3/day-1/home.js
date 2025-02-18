@@ -6,7 +6,8 @@ class User {
       this.location = location
     }
   
-    compareAge(anotherUser) {
+    compareAge(anotherUser) 
+    {
         if (this.age < anotherUser.age) 
         {
         return `${anotherUser.firstName} è più vecchio di ${this.firstName}.`
