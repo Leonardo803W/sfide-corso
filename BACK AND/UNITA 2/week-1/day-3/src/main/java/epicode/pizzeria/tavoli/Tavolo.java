@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//utilizzo l'annotazione NoArgsConstructor poiche il databese richiede un costruttore senza parametri
+//data e AllArgsConstructor per avere tutti i metodi e un costruttore con parametri senza scriverli
+//queste annotazioni posso utilizzare grazie alla dependency lombok
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

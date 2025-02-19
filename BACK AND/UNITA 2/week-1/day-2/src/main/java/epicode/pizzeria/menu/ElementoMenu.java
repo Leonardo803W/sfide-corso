@@ -4,5 +4,5 @@ public interface ElementoMenu {
 
     public String getName();
     public double getPrice();
-    public int getCalorie();
+    public int calories();
 }

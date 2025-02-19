@@ -6,6 +6,7 @@ import epicode.pizzeria.menu.Menu;
 import epicode.pizzeria.ordini.Ordine;
 import epicode.pizzeria.ordini.StatoOrdine;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -41,10 +42,10 @@ public class ApplicationRunner implements CommandLineRunner {
         ordine.setStatoOrdine(StatoOrdine.IN_CORSO);
         ordine.setNumeroCoperti(2);
         ordine.setElementiOrdine(List.of(
-                        menuPranzo.getElemntiMenu().get(1),
-                        menuPranzo.getElemntiMenu().get(2),
-                        menuPranzo.getElemntiMenu().get(3))
-                );
+                menuPranzo.getElemntiMenu().get(1),
+                menuPranzo.getElemntiMenu().get(2),
+                menuPranzo.getElemntiMenu().get(3))
+        );
         ordine.stampaOrdine();
     }
 }

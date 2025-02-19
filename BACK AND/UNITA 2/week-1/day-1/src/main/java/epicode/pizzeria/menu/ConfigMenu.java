@@ -6,9 +6,12 @@ import epicode.pizzeria.pizze.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import java.util.ArrayList;
 import java.util.List;
+
+//configuration contiene informazioni per configurare un ogetto e indico che se lo gestisce automaticamente il framework
+//bean e una classe che crea direttamente le istanze per poter ritornare un nuovo ogetto e necessita della notazione @configuration
+//inoltre con @Autowired faccio l'injection (ovvero se la va a caricare nel configuration appositamente creato
 
 @Configuration
 public class ConfigMenu {

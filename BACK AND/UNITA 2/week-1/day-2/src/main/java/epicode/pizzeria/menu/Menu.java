@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Menu {
 
-    private String nomeMenu;
+    private String nameMenu;
 
     //a differenza della versione precedente, siccome che tutte le varie informazioni si ricongiungono in
     //una unica classe, mi basta chiamarla per fare una nuova lista senza importare le classi.

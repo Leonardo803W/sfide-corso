@@ -6,10 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+//utilizzo l'annotazione NoArgsConstructor poiche il databese richiede un costruttore senza parametri
+//data e AllArgsConstructor per avere tutti i metodi e un costruttore con parametri senza scriverli
+//queste annotazioni posso utilizzare grazie alla dependency lombok
 
 @Data
 @AllArgsConstructor
@@ -23,7 +26,10 @@ public class Ordine {
     private LocalDateTime oraAcquisizione = LocalDateTime.now();
     private List<ElementoMenu> elementiOrdine = new ArrayList<>();
 
-    @Value("$[costo.coperto]")
+    // L'annotazione @Value in Spring è utilizzata per iniettare valori da file di configurazione, come application.properties o application.yml, direttamente nelle variabili di una classe
+    // posso anche mettere quella variabile da un'altra parte, ma metterla nelle properties mi assicura che sia sempre aggiornata e non perderla in caso cambio la classe dove viene utilizzata
+
+    @Value("${costo.coperto}")
     private double costoCoperto;
 
     public double calcolaCostoCoperto() {

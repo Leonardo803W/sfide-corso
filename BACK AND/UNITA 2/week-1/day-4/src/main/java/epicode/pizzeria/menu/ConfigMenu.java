@@ -9,9 +9,17 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+//configuration contiene informazioni per configurare un ogetto e indico che se lo gestisce automaticamente il framework
+//RequiredArgsConstructor data dalla dipendenza di Lombok genera automaticamente un costruttore che accetta come parametri tutte le variabili di istanza final e quelle che sono non nulle (annotate con @NonNull).
+
 @Configuration
 @RequiredArgsConstructor
 public class ConfigMenu {
+
+    //configuration contiene informazioni per configurare un ogetto e indico che se lo gestisce automaticamente il framework
+    //bean e una classe che crea direttamente le istanze per poter ritornare un nuovo ogetto e necessita della notazione @configuration
+    //non vi e piu @Autowired per il fatto che con final sto dicendo che una volta configurate non potranno essere piu modificate
+    //cio non vuol dire essere obbligati a utilizzare uno o l'altro
 
     private final Drink aranciata;
     private final Drink cocacola;

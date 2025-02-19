@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 //senza l'annotazione spring non riconoscerebbe la classe e quindi non la manderebbe in esecuzione
 //in questa classe faccio la stampa effettiva del menu
-
 //per farla funzionare inoltre devo sempre implementare l'interfaccia di CommandLineRunner e implementare il suo metodo.
 
 @Component

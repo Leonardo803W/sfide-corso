@@ -13,6 +13,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ConfigMenu {
 
+    //configuration contiene informazioni per configurare un ogetto e indico che se lo gestisce automaticamente il framework
+    //bean e una classe che crea direttamente le istanze per poter ritornare un nuovo ogetto e necessita della notazione @configuration
+    //non vi e piu @Autowired per il fatto che con final sto dicendo che una volta configurate non potranno essere piu modificate
+    //cio non vuol dire essere obbligati a utilizzare uno o l'altro
+
     private final Drink aranciata;
     private final Drink cocacola;
     private final Pizza pizzaMargherita;
@@ -28,7 +33,7 @@ public class ConfigMenu {
         // metodo i vari bean (ovvero le varie istanza)
 
         Menu m = new Menu();
-        m.setNomeMenu("Menu pranzo");
+        m.setNameMenu("Menu pranzo");
         m.setElemntiMenu(List.of(aranciata, cocacola, pizzaMargherita, pizzaFunghi, pizzaSalame, formaggio, salame));
         return m;
     }

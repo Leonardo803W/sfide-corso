@@ -19,8 +19,12 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+//@SpringBootTest è un'annotazione di JUnit che indica a Spring di avviare un contesto di test completo
+
 @SpringBootTest
 public class OrdineTest {
+
+    //@Autowired utilizzata per l'iniezione delle dipendenze nei bean
 
     @Autowired
     private Pizza pizzaMargherita;
@@ -28,6 +32,9 @@ public class OrdineTest {
     private Drink aranciata;
     @Autowired
     private Topping salame;
+
+    //@Test è l'annotazione di JUnit che indica che il metodo annotato è un test.
+    //@DisplayName("Test di creazione bean topping") è un'annotazione di JUnit che fornisce un nome descrittivo al test. Questo nome verrà visualizzato nei report dei test.
 
     @Test
     @DisplayName("Test di creazione ordine")
