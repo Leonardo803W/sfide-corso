@@ -1,8 +1,10 @@
+CREATE TYPE tipo AS ENUM ('PUBBLICO', 'PRIVATO');
+
 CREATE TABLE Evento (
 	id SERIAL PRIMARY KEY,
 	titolo VARCHAR(50) NOT NULL,
-	dataEvento DATE NOT NULL,
+	data_evento DATE NOT NULL,
 	descrizione VARCHAR(50) NOT NULL,
-	tipoEvento VARCHAR(50) NOT NULL,
-	numeroMassimoPartecipanti INTEGER NOT NULL
-);
+	tipo_evento tipo NOT NULL,
+	numero_massimo_partecipanti INTEGER NOT NULL
+)
