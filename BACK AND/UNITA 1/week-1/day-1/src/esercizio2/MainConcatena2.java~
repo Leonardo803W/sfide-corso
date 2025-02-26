@@ -1,0 +1,32 @@
+package esercizio2;
+
+import java.util.Scanner;
+
+public class MainConcatena2 {
+    public static void main(String[] args) {
+
+        Scanner myScanner = new Scanner(System.in);
+
+        System.out.println("Scegliere una parola: ");
+        String parola1 = myScanner.nextLine();
+        System.out.println("Scegliere una parola: ");
+        String parola2 = myScanner.nextLine();
+        System.out.println("Scegliere una parola: ");
+        String parola3 = myScanner.nextLine();
+
+        concatena(parola1, parola2, parola3);
+
+        //in questo caso non avendo nessun intero o double da prendere posso evitare di mettere myScanner.nextLine();
+
+        myScanner.close();
+    }
+
+    public static void concatena(String parola1, String parola2, String parola3) {
+
+        String frase = parola1 + parola2 + parola3;
+        System.out.println("il risultato è: " + frase);
+
+        String fraseInversa = parola3 + parola2 + parola1;
+        System.out.println("il risultato è: " + fraseInversa);
+    }
+}

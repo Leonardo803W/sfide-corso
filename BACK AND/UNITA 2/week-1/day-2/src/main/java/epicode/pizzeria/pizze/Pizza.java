@@ -36,7 +36,7 @@ public class Pizza implements ElementoMenu {
     }
 
     @Override
-    public int getCalorie() {
+    public int calories() {
         return calories;
     }
 }

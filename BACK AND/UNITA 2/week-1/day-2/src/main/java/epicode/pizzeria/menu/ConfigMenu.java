@@ -9,9 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-//configuration contiene informazioni per configurare un ogetto e indico che se lo gestisce automaticamente il framework
-//RequiredArgsConstructor data dalla dipendenza di Lombok genera automaticamente un costruttore che accetta come parametri tutte le variabili di istanza final e quelle che sono non nulle (annotate con @NonNull).
-
 @Configuration
 @RequiredArgsConstructor
 public class ConfigMenu {

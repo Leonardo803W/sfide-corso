@@ -5,16 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="429dc9cc-2760-4467-8a94-b33a2d0a7c11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/ConfigTopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/ConfigTopping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/Topping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/ConfigDrink.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/ConfigDrink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/Drink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/ConfigMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/ConfigMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/ConfigPizze.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/ConfigPizze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/Pizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/runner/ApplicationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/runner/ApplicationRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../day-1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
@@ -38,6 +28,16 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/epicode/pizzeria/runner/ApplicationRunner.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/epicode/pizzeria/PizzeriaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/ConfigTopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/ConfigTopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/aggiunte/Topping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/ConfigDrink.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/ConfigDrink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/bevande/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/ConfigMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/ConfigMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/ConfigPizze.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/ConfigPizze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/pizze/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/runner/ApplicationRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/java/epicode/pizzeria/runner/ApplicationRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day-1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../day-1/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/New/Desktop/EPICODE/sfide-corso/BACK AND/UNITA 2/week-1",
+    "last_opened_file_path": "C:/Users/New/Desktop/intellij progetti/BACK-END-UNITA-2-week-1-day-3",
     "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
@@ -90,16 +90,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

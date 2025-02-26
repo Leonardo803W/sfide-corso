@@ -1,28 +1,19 @@
-package Esercizio3;
+package esercizio3;
+
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
 
-        Cliente cliente1 = new Cliente(001, "lorenzo", "mucci", "lore@gmial.com", "24/05/2020");
-        Cliente cliente2 = new Cliente(002, "gianni", "mucci", "bob@gmial.com", "24/05/2020");
-        Articolo telefono = new Articolo("phone", "telefono", 500);
-        Articolo tv = new Articolo("tv", "enorme", 1000);
+        Cliente cliente1 = new Cliente(1, "Mario", "Rossi", LocalDate.of(2023, 1, 1), "qB8xT@example.com");
 
-        telefono.stampaProdotto();
-        System.out.println("-----------------");
-        cliente1.stampaDatiCliente();
-        System.out.println("-----------------");
-        telefono.setStock(1000);
-        System.out.println("-----------------");
+        Articolo[] articoli = new Articolo[4];
+        articoli[0] = new Articolo(1, "Televisore", 10.0, 5);
+        articoli[1] = new Articolo(2, "Panda", 20.0, 2);
+        articoli[2] = new Articolo(3, "Cuscino", 15.0, 3);
+        articoli[3] = new Articolo(4, "pettine", 10.0, 0);
 
-        Carello carello1 = new Carello(cliente1);
-        Articolo[] listaArticoliComprati = {telefono, tv};
-        carello1.setElencoArticoli(listaArticoliComprati);
-        carello1.getElencoArticoli();
-        carello1.getTotalCostoArticoli();
-        //carello1.setCliente(cliente2);
-        //Articolo[] listaArticoliComprati2 = {tv};
-        Carello carello2 = new Carello(cliente2);
-        carello2.getTotalCostoArticoli();
+        Carrello carrello = new Carrello(articoli, cliente1);
+        carrello.totale();
     }
 }

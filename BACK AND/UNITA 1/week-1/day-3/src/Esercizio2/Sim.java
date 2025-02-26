@@ -1,65 +1,73 @@
-package Esercizio2;
+package esercizio2;
+
+import java.util.Arrays;
 
 public class Sim {
 
-    private String telefono;
-    private double credito;
-    private Chiamata[] listaChiamate;
+    //private indico la sicurezza di questa variabile, essendo private la si puo utilizzare unicamente nella sua classe per poterla avere o cambiare devo creare metodi pubblici con i vari set e get
+    //se fosse stata con public non servirebbero i set e i get poiche potrei cambiare i valori d'ovunque io mi trovi
+    //con protected potrei cambiare i valori senza i get e i set solo nel puckege al di fuori di quello ho bisogno dei set e get
 
-    public Sim (String phon)
-    {
-        this.telefono = phon;
-        this.credito = 0;
-        this.listaChiamate = new Chiamata[5];
+    private String numberPhon;
+    private double credit;
+    private Chiamata[] contacts;
+
+    //il costruttore permette di creare le istanze della classe, ricevendo i valori o tramite parametri o che vengano settati dentro al costruttore senza che siano passati come parametri
+
+    public Sim(String number) {
+
+        this.numberPhon = number;
+        this.credit = 0;
+        this.contacts = new Chiamata[5];
     }
 
-    public void aggiungiCredito(double plusCredit)
-    {
-        System.out.println("Credito aumentato di: " + plusCredit + " Euro");
-        this.credito += plusCredit;
+    public String getNumberPhon() {
+        return numberPhon;
     }
 
-    public void setListaChiamate(Chiamata[] listaChiamate)
-    {
-        this.listaChiamate = listaChiamate;
+    public void setNumberPhon(String numberPhon) {
+        this.numberPhon = numberPhon;
     }
 
-    public void stampaCredito()
-    {
-        System.out.println("Credito attualmente: " + this.credito);
+    public double getCredit() {
+        return credit;
     }
 
-    public void usareCredito(double consumo)
-    {
-        double total;
+    public void setCredit(double credit) {
+        this.credit = credit;
+    }
 
-        if(this.credito > 0)
-        {
-            total = credito - consumo;
-            System.out.println("credito restante: " + total);
-            this.credito = total;
+    public Chiamata[] getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Chiamata[] contacts) {
+        this.contacts = contacts;
+    }
+
+    public void stampaDati() {
+        System.out.println("Numero telefonico: " + numberPhon);
+        System.out.println("Crediti: " + credit);
+        //System.out.println("Contatti: " + Arrays.toString(contacts));
+        if (contacts[0] != null) {
+            System.out.println("- Chiamata 1: " + contacts[0].getNumberPhon() + " - Durata minuti: "
+                    + contacts[0].getDuration());
         }
-        else
-        {
-            System.out.println("Credito insufficiente");
+        if (contacts[1] != null) {
+            System.out.println("- Chiamata 2: " + contacts[1].getNumberPhon() + " - Durata minuti: "
+                    + contacts[1].getDuration());
         }
-    }
-
-    public  void stampaDati()
-    {
-        int contatore = 0;
-        int i = 1;
-
-        System.out.println("Sim: " + this.telefono);
-        System.out.println("Credito a disposizione: " + this.credito + " Euro");
-
-        do
-        {
-            System.out.println(i + " chiamata da: " + listaChiamate[contatore].getTelefonata() + "; durata della chiamata: " + listaChiamate[contatore].getDurata());
-            contatore++;
-            i++;
-
-        }while (listaChiamate[contatore] != null);
-
+        if (contacts[2] != null) {
+            System.out.println("- Chiamata 3: " + contacts[2].getNumberPhon() + " - Durata minuti: "
+                    + contacts[2].getDuration());
+        }
+        if (contacts[3] != null) {
+            System.out.println("- Chiamata 4: " + contacts[3].getNumberPhon() + " - Durata minuti: "
+                    + contacts[3].getDuration());
+        }
+        if (contacts[4] != null) {
+            System.out.println("- Chiamata 5: " + contacts[4].getNumberPhon() + " - Durata minuti: "
+                    + contacts[4].getDuration());
+        }
     }
 }

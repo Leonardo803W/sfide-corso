@@ -30,6 +30,7 @@ public class Topping implements ElementoMenu {
     }
 
     @Override
-    public int getCalorie() {
+    public int calories() {
         return calories;
     }
+}

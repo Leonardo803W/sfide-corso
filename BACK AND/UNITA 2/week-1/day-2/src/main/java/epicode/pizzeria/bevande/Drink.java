@@ -30,7 +30,7 @@ public class Drink implements ElementoMenu {
     }
 
     @Override
-    public int getCalorie() {
+    public int calories() {
         return calories;
     }
 }
