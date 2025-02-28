@@ -1,0 +1,33 @@
+package esercizio3;
+
+import java.time.LocalDateTime;
+
+public abstract class Dipendente {
+
+    private int matricola;
+    private double stipendio;
+
+    public Dipendente(int matricola, double stipendio) {
+
+        this.matricola = matricola;
+        this.stipendio = stipendio;
+    }
+
+    public int getMatricola() {
+        return matricola;
+    }
+
+    public double getStipendio() {
+        return stipendio;
+    }
+
+    public double calculateSalary() {
+
+        return 0;
+    }
+
+    public void checkin() {
+
+        System.out.println("Inizio turno: " + LocalDateTime.now());
+    }
+}

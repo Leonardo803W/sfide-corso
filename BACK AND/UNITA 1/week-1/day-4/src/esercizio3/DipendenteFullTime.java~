@@ -1,0 +1,23 @@
+package esercizio3;
+
+public class DipendenteFullTime extends Dipendente {
+
+    private int oreLavorate;
+
+    public DipendenteFullTime(int matricola, double stipendio) {
+
+        super(matricola, stipendio);
+        this.oreLavorate = 40;
+    }
+
+    @Override
+    public double calculateSalary() {
+
+        return super.getStipendio();
+    }
+
+    public int getOreLavorate() {
+
+        return oreLavorate;
+    }
+}
