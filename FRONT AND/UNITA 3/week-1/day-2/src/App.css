@@ -36,3 +36,51 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-image: url(./img/l.png);
+  background-size: contain;
+}
+
+.book-image {
+  height: 400px; /* Imposta l'altezza desiderata */
+  object-fit: scale-down;
+}
+
+.title{
+  font-size: x-small;
+}
+
+.footerBorder {
+  padding: 2em;
+  color: white;
+  background-color: #282c34;
+  border-top: solid 3px blue;
+}
+
+.spanAlert{
+  background-color: #00d30073;
+  color: white;
+  padding: 2em;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: rgb(71, 67, 67) 5px 5px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spanAlert {
+    animation: spanAlert-scale 1s linear;
+  }
+}
+
+@keyframes spanAlert-scale{
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(10px);
+  }
+}
