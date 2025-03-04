@@ -1,13 +1,19 @@
+/*forma all'immagine*/
+
 .App-logo {
   pointer-events: none;
   border-radius: 100%;
 }
+
+/*animation permette di specificare come l'animazione si muovera, in questo caso lineare per cui l'animazione dura 20 secondi, senza infinite l'animazione durerebbe solo una volta, con infinite dura sempre*/
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+/*app-header da la forma al contenuto*/
 
 .App-header {
   background-color: #282c34;
@@ -19,6 +25,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+/*il keyframes e cio che permette di dire cosa accade all'animazione, utilizzando transform decido il tipo dell'animazione, in questo caso ruota poiche cio che trasforma sono i gradi
+con from gli dico da che punto parte, in questo caso da 0 gradi, con to gli dico dove deve arrivare, in questo caso a 360 gradi cosi da fare un giro completo
+senza il keyframes non posso fare le animazioni*/
 
 @keyframes App-logo-spin {
   from {
