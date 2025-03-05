@@ -1,10 +1,9 @@
-import { Col, Row } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import fantasy from '../data/fantasy.json';
 import history from '../data/history.json'; 
 import horror from '../data/horror.json';
 import romance from '../data/romance.json';
 import scifi from '../data/scifi.json';
-import Book from './Book';
 
 //in questo caso non sto passando nessuna proprs
 //in'oltre questa e un componente a funzione differenza ai componenti a classe poiche hanno piu logica dentro
@@ -28,7 +27,12 @@ const AllTheBooks = () => {
           {fantasy.slice(0, 20).map((book) => {
             return (
               <Col xs={12} md={8} lg={4} key={book.asin} className=' w-25'>
-                <Book img={book.img} title={book.title} />
+                <Card className="book-cover d-flex flex-column">
+                  <Card.Img variant="top" src={book.img} className="book-image"/>
+                  <Card.Body>
+                    <Card.Title style={{fontSize: 'medium', margin: '0'}}>{book.title}</Card.Title>
+                  </Card.Body>
+                </Card>
               </Col>
             );
           })}
