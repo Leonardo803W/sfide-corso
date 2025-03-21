@@ -6,6 +6,8 @@ import MyFooter from './components/MyFooter';
 import Welcome from './components/Welcome';
 import BookList from './components/BookList';
 
+//useState serve per utilizzare lo stato della variabile nel momento in cui il componente e a funzione, se invece fosse a classe utilizzerei lo state
+
 import { useState } from 'react';
 
 //nel momento in cui importo dei json dopo la chiave import come si vede sotto la parola che segue sara la variabile con cui si fara riferimento nel codice.
@@ -27,7 +29,9 @@ function App() {
   //tra parentesi l'effettivo json che voglio con l'effettiva nome della variabil che corrsiponde a quel jason.
 
   const handleCategoryChange = (category) => {
+
     switch (category) {
+
       case 'fantasy':
         setCurrentList(fantasy);
         break;
@@ -60,7 +64,7 @@ function App() {
 
         <main>
           <Welcome />
-          <BookList lista={currentList} onCategoryChange={handleCategoryChange} />
+          <BookList lista = {currentList} onCategoryChange = {handleCategoryChange} />
         </main>
 
         <footer>

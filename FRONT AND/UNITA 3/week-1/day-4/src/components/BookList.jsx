@@ -23,10 +23,16 @@ class BookList extends Component {
     //mentre con il secondo fisso di defoult il json che riceve all'inizio, siccome i json non vengono importati in questo componente tra parentesi dico il nome del jason ma tra apici.
 
     this.state = {
+
       searchTerm: '',
       selectedCategory: 'history',
+      currentPage: 0,
+      booksPage: 20,
+      pageLimits: true,
     }
   }
+
+  
   
 
   // lo scopo del metodo handleSearchChange e gestire l'evento di cambiamento di un campo di ricerca.
@@ -57,6 +63,7 @@ class BookList extends Component {
     //in questo modo facendo includes quindi includendo anche il valore della barra di ricerca che viene trasformata in minuscolo, cosi che essendo il titolo e il valore della ricerca vi sia un confronto
 
     const { searchTerm } = this.state;
+
     return this.props.lista.filter(book =>
       book.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -77,15 +84,41 @@ class BookList extends Component {
 
   handleBookSelect = (book) => {
 
-    this.setState({selectedBook: book})
+    this.setState({selectedBook: book});
   };
+
+  handleNextPage = () => {
+
+    this.setState((prevState) => {
+      if (prevState.booksPage < 140) {
+          return {
+            currentPage: prevState.currentPage + 20,
+            booksPage: prevState.booksPage + 20,
+          };
+      }
+      return null;
+    });
+  }
+
+  handlePreviusPage = () => {
+
+    this.setState((prevState) => {
+      if (prevState.currentPage > 0) {
+          return {
+              currentPage: prevState.currentPage - 20,
+              booksPage: prevState.booksPage - 20,
+          };
+      }
+      return null;
+    });
+  }
 
   render() {
 
     //const { searchTerm, selectedCategory }: Questa riga utilizza la destructuring assignment per estrarre le proprietà searchTerm e selectedCategory dall'oggetto this.state.
     //this.state: Questo si riferisce allo stato del componente, che contiene le informazioni che determinano l'aspetto e il comportamento del componente.
     
-    const { searchTerm, selectedCategory } = this.state;
+    const { searchTerm, selectedCategory, currentPage, booksPage } = this.state;
 
     //const filteredBooks: Questa riga dichiara una costante chiamata filteredBooks.
     //= this.getFilteredBooks(): Questa parte assegna alla costante filteredBooks il risultato della chiamata alla funzione this.getFilteredBooks().
@@ -111,6 +144,7 @@ class BookList extends Component {
         </Form.Group>
       </Form>
 
+      <section className = 'middleSection'>
       {/**
        * dropdown è l'elemento principale che definisce il menu a tendina. All'interno di questo tag, definisci le diverse parti del menu.
        * variant="success": Questo attributo definisce il colore di sfondo e il bordo del pulsante. In questo caso, è verde (success).
@@ -126,10 +160,10 @@ class BookList extends Component {
        * tra parentesi il nome del jason corrispondente al metodo, sempre tra apici poiche non sono importati in questo componente
        */}
 
-       <Dropdown className=' mt-4'>
-       <Dropdown.Toggle variant="success" id="dropdown-basic">
-         Select Category: {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}
-       </Dropdown.Toggle>
+      <Dropdown className=' mt-4'>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Select Category: {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}
+        </Dropdown.Toggle>
 
         {/**
          * Il this qui è fondamentale perché indica che la funzione handleCategorySelect è una funzione membro del componente BookList. 
@@ -139,37 +173,39 @@ class BookList extends Component {
          */}
 
        <Dropdown.Menu>
-       <Dropdown.Item onClick={() => this.handleCategorySelect('fantasy')}>Fantasy</Dropdown.Item>
-       <Dropdown.Item onClick={() => this.handleCategorySelect('history')}>History</Dropdown.Item>
-       <Dropdown.Item onClick={() => this.handleCategorySelect('horror')}>Horror</Dropdown.Item>
-       <Dropdown.Item onClick={() => this.handleCategorySelect('romance')}>Romance</Dropdown.Item>
-       <Dropdown.Item onClick={() => this.handleCategorySelect('scifi')}>Sci-Fi</Dropdown.Item>
-     </Dropdown.Menu>
-   </Dropdown>
+          <Dropdown.Item onClick={() => this.handleCategorySelect('fantasy')}>Fantasy</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.handleCategorySelect('history')}>History</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.handleCategorySelect('horror')}>Horror</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.handleCategorySelect('romance')}>Romance</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.handleCategorySelect('scifi')}>Sci-Fi</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <div>
+        <button onClick = {this.handlePreviusPage} disable d= {currentPage === 0}>
+          ←
+        </button>
+
+        <span className = 'spanNumber'>
+          {currentPage} - {booksPage}
+        </span>
+
+        <button onClick = {this.handleNextPage}>
+          →
+        </button>
+      </div>
+      
+      </section>
 
       <Row className="g-3 m-4">
-          {filteredBooks.length > 2 ? (
-            filteredBooks.map((book) => (
-              <Col xs={12} md={8} lg={4} key={book.asin} className='w-25'>
-                <SingleBook img={book.img} title={book.title} />
-              </Col>
-            ))
-          ) : (
-
-          //utilizzo ? e : e l'or per cui se il metodo filteredBooks viene chiamato, ovvero l'utente digita sulla barra di ricerca non viene messo lcun limiti di visualizzazione dei libri
-          //se invece non viene invocato il metodo metto un limite nel visualizzare i libri con props.lista.slice(0, 20).map((book) in cui chiamo le props le chiamo con il nome dato nel padre del componente
-          //e con slice imposto la quantita, mentre con map il metodo con una variabile provvisoria tra parentesi, stesso metodo anche sopra.
-          //il ? e i : sono sostanzialmente il if e l'else ma in una forma diversa.
-
-          this.props.lista.slice(0, 5).map((book) => (
-            <Col xs={12} md={8} lg={4} key={book.asin} className='w-25'>
-              <SingleBook 
-                    img={book.img} 
-                    title={book.title} 
-              />
-            </Col>
-          ))
-        )}
+        {filteredBooks.slice(currentPage, currentPage + booksPage).map((book) => (
+          <Col xs={12} md={8} lg={4} key={book.asin} className='w-25'>
+            <SingleBook 
+              img={book.img} 
+              title={book.title} 
+            />
+          </Col>
+        ))}
       </Row>
     </div>
   );

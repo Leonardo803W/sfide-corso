@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
 import { Component } from 'react';
+import CommentArea from "./CommentArea";
 
 //in questo caso sto passando una props che contiene un jason
 //in'oltre questa e un componente a funzione differenza ai componenti a classe poiche hanno piu logica dentro
@@ -11,8 +12,20 @@ class SingleBook extends Component {
     super(props)
 
     this.state = {
+
       selected: false,
+      selectedBook: null,
     }
+  }
+
+  handleCardClick = () => {
+
+    const { img, title } = this.props;
+
+    this.setState(prevState => ({
+      selected: !prevState.selected,
+      selectedBook: prevState.selected ? null : { img, title }
+    }));
   }
  
   render() {
@@ -28,7 +41,7 @@ class SingleBook extends Component {
       <div>
         <Card 
           className = "selected"
-          onClick={() => this.setState({ selected: !this.state.selected })} 
+          onClick = {this.handleCardClick} 
           style={{ 
             border: this.state.selected ? '3px solid red' : 'none',
           }}
@@ -36,11 +49,13 @@ class SingleBook extends Component {
           <Card.Img variant="top" src={img} className="book-image"/>
           <Card.Body>
             <Card.Title 
-              style={{ fontSize: 'medium', margin: '0' }}>
+              style = {{ fontSize: 'medium', margin: '0' }}>
                 {title}
             </Card.Title>
           </Card.Body>
         </Card>
+
+        {this.state.selected && <CommentArea asin = {this.props.book} />}
       </div>
     );
   }
