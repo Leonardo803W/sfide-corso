@@ -1,31 +1,34 @@
 package epicode.gestione.viaggi.aziendali.dipendenti;
 
-import epicode.gestione.viaggi.aziendali.general_responses.CreateResponse;
+import epicode.gestione.viaggi.aziendali.CreateGeneralResponse;
 import epicode.gestione.viaggi.aziendali.mail.EmailService;
-import jakarta.mail.MessagingException;
-import jakarta.persistence.EntityExistsException;
-import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.List;
+//@Service: Questa annotazione indica che la classe a cui è applicata è un servizio in un'architettura Spring.
+// Un servizio è un componente che fornisce funzionalità specifiche all'interno di un'applicazione.
 
-//Service identifica una classe come un componente di servizio. I servizi sono responsabili dell'esecuzione di operazioni specifiche all'interno di un'applicazione, Spring la riconosce come un bean e la gestisce per l'iniezione di dipendenze
-//indica che una classe o un metodo deve essere validato prima dell'esecuzione. La validazione si basa sulle annotazioni di validazione come @NotBlank utilizzata nella classe DipendenteRequest....
-//....fondamentale per garantire la correttezza dei dati in ingresso. Se una classe o un metodo è annotato con @Validated, Spring controllerà automaticamente se i dati soddisfano i vincoli di validazione. Se i dati non sono validi, verrà sollevata un'eccezione.
-//RequiredArgsConstructor genera automaticamente un costruttore che inizializza i campi finali della classe. In questo caso, inizializza aziendaRepository e faker
+//@RequiredArgsConstructor: Questa annotazione di Lombok è un modo conciso per generare automaticamente un costruttore che inizializza tutti i campi finali e obbligatori.
+//In altre parole, questa annotazione ti aiuta a creare un costruttore senza doverlo scrivere manualmente.
+
+//@Validated: Questa annotazione indica che la classe o il metodo a cui è applicata deve essere validata prima dell'esecuzione.
+//La validazione viene eseguita utilizzando le regole di convalida definite tramite annotazioni come @NotNull, @NotBlank, @Size, ecc.
 
 @Service
 @RequiredArgsConstructor
 @Validated
 public class DipendenteService {
 
-    //final poiche le classi non devono essere cambiate in questa classe, inoltre la classe repository serve per avere i campi della classe Dipendente mentre faker per avere dati fitizzi riguardanti l'area geografica specificata nella classe
+    //final poiche le classi non devono essere cambiate in questa classe
+    //AutoreRepository: è il tipo di dato della variabile, presumibilmente un'interfaccia o una classe che definisce i metodi per l'accesso ai dati della tabella Autore in un database.
+    //EmailService: è il tipo di dato della variabile, presumibilmente un'interfaccia o una classe che definisce i metodi per l'invio di email.
 
     private final DipendenteRepository dipendenteRepository;
     private final EmailService emailService;
@@ -38,102 +41,102 @@ public class DipendenteService {
     @Value("${messages.new.dipendente.body}")
     private String newDipendenteBody;
 
-    public List<DipendenteResponse> findAll() {
-
-        List<DipendenteResponse> response =  dipendenteResponseListFromEntityList(dipendenteRepository.findAll());
-        return response;
-    }
-
-    public Dipendente modify(Long id, DipendenteRequest request) {
-
-        Dipendente dipendente = findById(id);
-        BeanUtils.copyProperties(request, dipendente);
-        dipendenteRepository.save(dipendente);
-        return dipendente;
-    }
 
     //metodo per inserire un dipendente
-    //invio una email di notifica per inserimento dipendente
-    public CreateResponse save(@Valid DipendenteRequest request)   {
+    public CreateGeneralResponse save(DipendenteRequest dipendenteRequest) {
 
-        if(dipendenteRepository.existsByUsername(request.getUsername())){
+        //i due if sono per verificare se l'utente esiste o tramite email o tramite il cognome e nome, metodi personalizzti di AutoreRepository
+
+        /*
+        if(autoreRepository.existsByEmail(dipendenteRequest.getEmail())){
             throw new EntityExistsException("Dipendente già esistente");
         }
 
-        if(dipendenteRepository.existsByEmail(request.getEmail())){
-            throw new EntityExistsException("Dipendente già esistente");
+        if (autoreRepository.existsByNomeAndCognome(dipendenteRequest.getNome(), dipendenteRequest.getCognome())) {
+            throw new EntityExistsException("Autore già esistente");
         }
+        */
 
-        Dipendente dipendente = dipendenteFromRequest(request);
+        Dipendente dipendente = new Dipendente();
 
+        //come si vede sotto ci sono due modi, o scrivo una ad una le proprieta che mi servono
+        //oppure utilizzo BeanUtils.copyProperties(postRequest, p);
+        //il quale mi permette di copiare tutte le proprieta che voglio modificare
+
+        //dipendente.setNome(dipendenteRequest.getNome());
+        //dipendente.setCognome(dipendenteRequest.getCognome());
+        //dipendente.setEmail(dipendenteRequest.getEmail());
+        //dipendente.setDataNascita(dipendenteRequest.getDataNascita());
+
+        BeanUtils.copyProperties(dipendenteRequest, dipendente);
         dipendenteRepository.save(dipendente);
-        CreateResponse response = new CreateResponse();
+
+        //CreateGeneralResponse: permette di aggiungere gli id numerici che si vedono nelle chiamate delle api
+
+        CreateGeneralResponse response = new CreateGeneralResponse();
         BeanUtils.copyProperties(dipendente, response);
 
+        //metodo per inviare email, siccome che il metodo sendEmail prevede eccezioni devo utilizzare try catch
+        //inoltre il metodo sendEmail prevede come parametri l'indirizzo email, il subject e il body e posso utilizzarli siccome sono metodi personalizzati della classe EmailService
+
         try {
+            emailService.sendEmail(dipendente.getEmail(),newDipendenteSubject);
             emailService.sendEmail(
                     dipendente.getEmail(),newDipendenteSubject, "<h1>"+newDipendenteBody+"</h1><img src='https://res.cloudinary.com/dmc1dmdyo/image/upload/v1739439825/FS0824/paris.jpg.jpg'>"
-                            +dipendente.getEmail()) ;
+                            + dipendente.getEmail()) ;
         } catch (Exception e) {
 
             System.out.println("Errore invio email");
         }
 
         return response;
-
     }
 
+    //metodo per modificare un dipendente
+    public Dipendente modifyById(Long id, DipendenteRequest dipendenteRequest) {
+
+        Dipendente dipendente = dipendenteRepository.findById(id).orElse(null);
+
+        //come si vede sotto ci sono due modi, o scrivo una ad una le proprieta che mi servono
+        //oppure utilizzo BeanUtils.copyProperties(postRequest, p);
+        //il quale mi permette di copiare tutte le proprieta che voglio modificare
+
+        //dipendente.setNome(DipendenteRequest.getNome());
+        //dipendente.setCognome(DipendenteRequest.getCognome());
+        //dipendente.setEmail(DipendenteRequest.getEmail());
+        //dipendente.setDataNascita(DipendenteRequest.getDataNascita());
+
+        BeanUtils.copyProperties(dipendenteRequest, dipendente);
+        dipendenteRepository.save(dipendente);
+        return dipendente;
+    }
+
+    //metodo per trovare un dipendente per id
     public Dipendente findById(Long id) {
 
-        if(!dipendenteRepository.existsById(id))
-        {
-            throw new EntityNotFoundException("Dipendente non trovato");
-        }
         return dipendenteRepository.findById(id).get();
     }
 
-    //@Transactional viene utilizzata per indicare che un metodo o una classe deve essere eseguito all'interno di una transazione.
-    //Questo significa che tutte le operazioni di database eseguite all'interno di quel contesto saranno trattate come un'unica unità di lavoro. Se una di queste operazioni fallisce, tutte le altre verranno annullate, garantendo così l'integrità dei dati.
-
-    @Transactional
-    public DipendenteDettaglioResponse findDipendenteResponseById(Long id){
-
-        if(!dipendenteRepository.existsById(id)){
-            throw new EntityNotFoundException("Dipendente non trovato");
-        }
-
-        Dipendente dipendente = dipendenteRepository.findById(id).get();
-
-        DipendenteDettaglioResponse response = new DipendenteDettaglioResponse();
-        BeanUtils.copyProperties(dipendente, response);
-
-        return response;
-
-    }
-
-    public void delete(Long id) {
+    //metodo per cancellare un dipendente
+    public void deleteById(Long id) {
 
         Dipendente dipendente = findById(id);
         dipendenteRepository.deleteById(id);
     }
 
+    //metodo per trovare tutti gli autori
+    public Page<Dipendente> findAll(int page, int size, String sort) {
 
-    public DipendenteResponse dipendenteResponseFromEntity(Dipendente dipendente){
+        //Page<Autore>: indica che la funzione restituirà un oggetto Page contenente una lista di oggetti Autore.
+        //page: l'indice della pagina da recuperare (a partire da 0).
+        //size: il numero di elementi per pagina.
+        //sort: il campo da usare per ordinare i risultati (ad esempio, "nome" o "dataDiNascita").
 
-        DipendenteResponse response = new DipendenteResponse();
-        BeanUtils.copyProperties(dipendente, response);
-        return response;
-    }
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
 
-    public List<DipendenteResponse> dipendenteResponseListFromEntityList(List<Dipendente> dipendenti){
+        //Pageable pageable = PageRequest.of(page, size, Sort.by(sort));: Questa riga crea un oggetto Pageable che contiene le informazioni su come recuperare i dati dalla pagina.
+        //PageRequest.of(page, size, Sort.by(sort)): crea un nuovo oggetto PageRequest che specifica la pagina, la dimensione e l'ordinamento dei dati.
 
-        return dipendenti.stream().map(this::dipendenteResponseFromEntity).toList();
-    }
-
-    public Dipendente dipendenteFromRequest(DipendenteRequest request){
-
-        Dipendente dipendente = new Dipendente();
-        BeanUtils.copyProperties(request, dipendente);
-        return dipendente;
+        return dipendenteRepository.findAll(pageable);
     }
 }

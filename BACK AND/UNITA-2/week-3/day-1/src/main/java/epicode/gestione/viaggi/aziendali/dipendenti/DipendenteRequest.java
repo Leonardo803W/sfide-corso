@@ -6,16 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotBlank;
 
-//utilizzo le annotqazione table per la tabella e NoArgsConstructor poiche il databese richiede un costruttore senza parametri
-//data e AllArgsConstructor per avere tutti i metodi e un costruttore con parametri senza scriverli
+//@Data: Questa annotazione, fornita da Lombok, genera automaticamente metodi getter e setter per ogni campo della classe, oltre ai metodi equals, hashCode e toString.
+//@AllArgsConstructor: Questa annotazione genera un costruttore che accetta come parametri tutti i campi della classe.
+//@NoArgsConstructor: Questa annotazione genera un costruttore senza parametri.
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DipendenteRequest {
 
-    //le annotqazioni NotBlank Indicano che il valore di un campo non può essere null e deve contenere almeno un carattere significativo
-    //mentre l'annotazione email verifica se la variabile inserita, ovvero l'email sia valida
+    //@NotBlank: questa annotazione indica che il campo non puo essere vuoto
+    //@Email: questa annotazione indica che il campo deve essere un indirizzo email
+    //(message = "Email non valida"): questa annotazione indica un messaggio personalizzato per l'errore
 
     @NotBlank(message = "Il campo username non puo essere vuoto")
     private String username;

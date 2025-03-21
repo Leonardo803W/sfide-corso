@@ -6,9 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//utilizzo le annotqazione table per la tabella e NoArgsConstructor poiche il databese richiede un costruttore senza parametri
+import java.util.ArrayList;
+import java.util.List;
+
+//utilizzo l'annotazione NoArgsConstructor poiche il databese richiede un costruttore senza parametri
 //data e AllArgsConstructor per avere tutti i metodi e un costruttore con parametri senza scriverli
-//entity per far gestire al framwork la classe, in oltre se non specifico il nome facendo: (name = "dipendenti"), il databese non avra problemi a riconoscere quale tabella fa parte l'entita
+//queste annotazioni posso utilizzare grazie alla dependency lombok
+//Entity indica che la classe che la contiene rappresenta un'entità che può essere mappata in un database relazionale
+//@Tabble indica che la classe rappresenta una tabella in un database relazionale
 
 @Entity
 @Data
@@ -32,6 +37,9 @@ public class Dipendente {
     private String cognome;
     private String email;
 
-    @OneToOne(mappedBy = "dipendente") // Mappatura inversa della relazione
-    private Viaggio viaggio; // Riferimento al viaggio associato
+    //OneToMany serve per specificare una relazione di uno a molti
+    //mappedBy serve per specificare la proprieta che rappresenta la chiave esterna
+
+    @OneToMany(mappedBy = "dipendente", cascade = CascadeType.ALL)
+    private List<Viaggio> viaggi = new ArrayList<>();
 }

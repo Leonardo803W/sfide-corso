@@ -7,16 +7,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//utilizzo le annotqazione table per la tabella e NoArgsConstructor poiche il databese richiede un costruttore senza parametri
 //data e AllArgsConstructor per avere tutti i metodi e un costruttore con parametri senza scriverli
+//@AllArgsConstructor genera automaticamente un costruttore che inizializza i campi finali della classe
+//@NoArgsConstructor genera automaticamente un costruttore che inizializza i campi finali della classe
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DipendenteDettaglioResponse {
 
-    private Long id;
-    private String username;
     private String email;
     private Viaggio viaggio;
 }

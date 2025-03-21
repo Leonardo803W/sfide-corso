@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-//utilizzo le annotqazione table per la tabella e NoArgsConstructor poiche il databese richiede un costruttore senza parametri
+//utilizzo l'annotazione NoArgsConstructor poiche il databese richiede un costruttore senza parametri
 //data e AllArgsConstructor per avere tutti i metodi e un costruttore con parametri senza scriverli
-//entity per far gestire al framwork la classe, in oltre se non specifico il nome facendo: (name = "dipendenti"), il databese non avra problemi a riconoscere quale tabella fa parte l'entita
+//queste annotazioni posso utilizzare grazie alla dependency lombok
+//Entity indica che la classe che la contiene rappresenta un'entità che può essere mappata in un database relazionale
+//@Tabble indica che la classe rappresenta una tabella in un database relazionale
 
 @Entity
 @Data
@@ -34,12 +36,16 @@ public class Viaggio {
     @Column(name = "data_viaggio")
     private LocalDate dataViaggio;
 
+    //@Enumerated(EnumType.STRING) serve per indicare che il valore di statoViaggio deve essere salvato come una stringa e che sia un tipo enum
+
     @Column(name = "stato_viaggio")
     @Enumerated(EnumType.STRING)
     private StatoViaggio statoViaggio;
 
-    @OneToOne
-    @JoinColumn(name = "dipendente_id", referencedColumnName = "id")
-    private Dipendente dipendente; // Associazione one-to-one con Dipendente
+    //Many to One indica che un post appartiene ad un autore
+
+    @ManyToOne
+    @JoinColumn(name = "dipendenteId")
+    private Dipendente dipendente;
 
 }

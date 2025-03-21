@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 //configuration contiene informazioni per configurare un ogetto
-//bean crea direttamente le istanze per poter ritornare un nuovo ogetto
-//Value tramite questa annotazione prendo i valori che stanno nelle properties
 
 @Configuration
 public class CloudinaryConfig {
+
+    //Value tramite questa annotazione prendo i valori che stanno nelle properties
 
     @Value("${cloudinary.cloud_name}")
     private String cloudName;
@@ -22,13 +22,15 @@ public class CloudinaryConfig {
     @Value("${cloudinary.api_secret}")
     private String apiSecret;
 
+    //bean crea direttamente le istanze per poter ritornare un nuovo ogetto
+
     @Bean
     public Cloudinary cloudinary() {
 
         Map<String, String> config = new HashMap<>();
-        config.put("dz4gkzrpj", cloudName);
-        config.put("672724298338689", apiKey);
-        config.put("3VZLsZ3eygTNEP0VOl-aPTEvDEs",apiSecret);
+        config.put("cloud_name", cloudName);
+        config.put("api_key", apiKey);
+        config.put("api_secret", apiSecret);
         return new Cloudinary(config);
     }
 }

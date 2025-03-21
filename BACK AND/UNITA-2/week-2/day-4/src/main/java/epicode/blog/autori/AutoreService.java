@@ -14,8 +14,19 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+
+//@Service: Questa annotazione indica che la classe a cui è applicata è un servizio in un'architettura Spring. 
+// Un servizio è un componente che fornisce funzionalità specifiche all'interno di un'applicazione.
+
+//@RequiredArgsConstructor: Questa annotazione di Lombok è un modo conciso per generare automaticamente un costruttore che inizializza tutti i campi finali e obbligatori. 
+//In altre parole, questa annotazione ti aiuta a creare un costruttore senza doverlo scrivere manualmente.
+
+//@Validated: Questa annotazione indica che la classe o il metodo a cui è applicata deve essere validata prima dell'esecuzione. 
+//La validazione viene eseguita utilizzando le regole di convalida definite tramite annotazioni come @NotNull, @NotBlank, @Size, ecc.
+
 @Service
 @RequiredArgsConstructor
+@Validated
 public class AutoreService {
 
     //final poiche le classi non devono essere cambiate in questa classe
@@ -84,7 +95,7 @@ public class AutoreService {
     }
 
     //metodo per modificare un autore
-    public Autore modify(Long id, AutoreRequest autoreRequest) {
+    public Autore modifybyId(Long id, AutoreRequest autoreRequest) {
 
         Autore autore = autoreRepository.findById(id).orElse(null);
 
@@ -109,7 +120,7 @@ public class AutoreService {
     }
 
     //metodo per cancellare un autore
-    public void delete(Long id) {
+    public void deleteById(Long id) {
 
         Autore autore = findById(id);
         autoreRepository.deleteById(id);

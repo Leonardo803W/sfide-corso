@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    //@Autowired: questa annotazione indica che questa classe è un servizio Spring, che viene utilizzata per la gestione delle operazioni di autenticazione e autorizzazione
-
     @Autowired
     private AppUserRepository appUserRepository;
 
