@@ -15,6 +15,6 @@ import java.time.LocalDate;
 public class ViaggioDettaglioResponse {
 
     private String destinazione;
+    private LocalDate dataViaggio;
     private StatoViaggio statoViaggio;
-    private int dipendenteId;
 }

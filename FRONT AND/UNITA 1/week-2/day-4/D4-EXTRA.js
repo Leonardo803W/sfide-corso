@@ -51,7 +51,7 @@ shoppingCart(carello)
 /* SCRIVI QUI LA TUA RISPOSTA */
 const addToShoppingCart = function (){
 
-    newOggetto = {price: 5000, name: "macchina", id: 113, quantity: 5}
+    newOggetto = {price: 10000, name: "macchina", id: 113, quantity: 5}
     
     carello.push(newOggetto)
 
@@ -59,7 +59,7 @@ const addToShoppingCart = function (){
 
     for(let i = 0; i < carello.length; i++)
     {
-        sum = sum + carello[i]
+        sum++;
     }
 
     console.log(sum)
@@ -73,15 +73,27 @@ addToShoppingCart(carello)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const maxShoppingCart = function (shoppingCart) {
 
+    if (shoppingCart.length === 0) {
 
-const maxShoppingCart = function (car) {
-
-    for(let i = 0; i < car.length; i++)
-    {
-
+        return "Attenzione l'array passato e vuoto";
     }
-}
+
+    let maxCosto = shoppingCart[0].price;
+    let elementoPiuCostoso = shoppingCart[0];
+
+    for (let i = 1; i < shoppingCart.length; i++) {
+
+        if (shoppingCart[i].price > maxCosto) {
+
+            maxCosto = shoppingCart[i].price;
+            elementoPiuCostoso = shoppingCart[i];
+        }
+    }
+
+    console.log("logetto piu costoso della collezione e: " + elementoPiuCostoso.name);
+};
 
 maxShoppingCart(carello)
 
@@ -91,6 +103,19 @@ maxShoppingCart(carello)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const latestShoppingCart = function (shoppingCart) {
+    
+    if (shoppingCart.length === 0) {
+
+        return "Attenzione l'array passato e vuoto";
+    }
+    
+    let ultimoElemento = shoppingCart.length - 1;
+    
+    console.log(ultimoElemento);
+};
+
+latestShoppingCart(carello)
 
 /* EXTRA 6
  Crea una funzione chiamata "loopUntil" che riceve un numero intero come parametro con valore tra 0 e 9.

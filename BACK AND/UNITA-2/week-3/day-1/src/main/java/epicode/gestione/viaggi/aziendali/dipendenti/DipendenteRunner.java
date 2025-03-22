@@ -1,11 +1,11 @@
 package epicode.gestione.viaggi.aziendali.dipendenti;
 
+/*
 import com.github.javafaker.Faker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-/*
 //component specifica che tale classe la gestira automaticamente e soltanto il fremwork, ovvero spring
 //RequiredArgsConstructor genera automaticamente un costruttore che inizializza i campi finali della classe. In questo caso, inizializza aziendaRepository e faker
 //Questa interfaccia indica che la classe verrà eseguita quando l'applicazione Spring viene avviata. Il metodo run() verrà chiamato automaticamente
@@ -32,7 +32,7 @@ public class DipendenteRunner implements CommandLineRunner {
             dipendente.setUsername(faker.name().username());
             dipendente.setCognome(faker.name().lastName());
             dipendente.setNome(faker.name().firstName());
-            dipendente.setEmail(faker.address().fullAddress());
+            dipendente.setEmail(faker.internet().emailAddress());
             dipendenteRepository.save(dipendente);
 
         }
@@ -40,4 +40,4 @@ public class DipendenteRunner implements CommandLineRunner {
     }
 
 }
-*/
+ */

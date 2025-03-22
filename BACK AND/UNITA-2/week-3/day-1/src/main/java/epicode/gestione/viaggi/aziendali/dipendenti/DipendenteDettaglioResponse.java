@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //data e AllArgsConstructor per avere tutti i metodi e un costruttore con parametri senza scriverli
 //@AllArgsConstructor genera automaticamente un costruttore che inizializza i campi finali della classe
 //@NoArgsConstructor genera automaticamente un costruttore che inizializza i campi finali della classe
@@ -16,6 +19,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DipendenteDettaglioResponse {
 
+    private String username;
+    private String nome;
+    private String cognome;
     private String email;
-    private Viaggio viaggio;
+    private List<Viaggio> viaggi = new ArrayList<>();
 }

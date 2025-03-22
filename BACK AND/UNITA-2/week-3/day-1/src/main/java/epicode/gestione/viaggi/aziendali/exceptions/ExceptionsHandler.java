@@ -1,7 +1,10 @@
 package epicode.gestione.viaggi.aziendali.exceptions;
 import java.time.LocalDateTime;
 
+import epicode.gestione.viaggi.aziendali.sicurezza.JwtTokenMissingException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -26,13 +29,13 @@ public class ExceptionsHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorsPayload handleBadRequest(BadRequestException e) {
 
-        return new ErrorsPayload(e.getMessage(), LocalDateTime.now());
+        return new ErrorsPayload("Errore" + e.getMessage(), LocalDateTime.now());
     }
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorsPayload handleNotFound(NotFoundException e) {
 
-        return new ErrorsPayload(e.getMessage(), LocalDateTime.now());
+        return new ErrorsPayload("Errore" + e.getMessage(), LocalDateTime.now());
     }
 
     @ExceptionHandler(Exception.class)
@@ -40,7 +43,20 @@ public class ExceptionsHandler {
     public ErrorsPayload handleGeneric(Exception e) {
 
         e.printStackTrace();
-        return new ErrorsPayload("Errore generico, risolveremo il prima possibile", LocalDateTime.now());
+        return new ErrorsPayload("Errore" + e.getMessage(), LocalDateTime.now());
     }
 
+    @ExceptionHandler(value = AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    protected ErrorsPayload handleAccessDenied(AccessDeniedException ex) {
+
+        return new ErrorsPayload("Errore" + ex.getMessage(), LocalDateTime.now());
+    }
+
+    @ExceptionHandler(value = JwtTokenMissingException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected ErrorsPayload handleJwtTokenMissing(JwtTokenMissingException ex) {
+
+        return new ErrorsPayload("Errore" + ex.getMessage(), LocalDateTime.now());
+    }
 }

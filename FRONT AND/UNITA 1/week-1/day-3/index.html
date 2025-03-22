@@ -13,12 +13,12 @@
             <img src="./assets/logo.png" alt="logo">
         </div>
     
-        <p class="introduction">
-            part of <span>a simply fabulous thanksgiving</span>
-        </p>
+        <h1 class="introduction">
+            <span>part of </span>a simply fabulous thanksgiving
+        </h1>
     </header>
 
-    <main id="principale">
+        <main id="principale">
 
             <h1 class="title">
                 Focaccia with Caramelized Onions, Cranberries, and Brie
@@ -30,13 +30,44 @@
                 distinctio possimus, illum dolorem!
             </p>
     
-            <div class="foto-principale">
-                <img src="./assets/focaccia.png" alt="una Focaccia">
+            <section>
+                <div class="foto-principale">
 
-                <p>
-                  Image: Sally Vegas
-                </p>
-            </div>
+                    <!-- il primo cso e per avere un video funzionante nel sito, mentre con il tag video posso creare un poster del video, ma non funziona come un video effettivo rispetto a iframe
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/uN9HTJEsJEQ" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; 
+                        autoplay; 
+                        clipboard-write; 
+                        encrypted-media; gyroscope; 
+                        picture-in-picture" 
+                        allowfullscreen>
+                    </iframe> -->
+                    
+                    <video 
+                        controls
+                        poster="https://www.simplyrecipes.com/thmb/zF72dLHMKcc-jkJE76eOpXvBSD0=/720x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__12__Cranberry-Brie-Onion-Focaccia-LEAD-3-de2a320146654a1e975487ca943bfaa3.jpg">
+                        
+                        <source src="./assets/video/brotsky-bakery.mp4" type="video/mp4">
+                    </video>
+
+                    <p>
+                        Image: Sally Vegas
+                    </p>
+                </div>
+
+                <div class = "linkTitle">
+                    <p>
+                        featured in:
+                    </p>
+
+                    <a href="#" class = "link">Fresh Cramberry Recipes That Go Beyond Sauce</a>
+                </div>
+            </section>
     
             <h3>
                 Ingridients
@@ -69,22 +100,28 @@
     
             <hr>
     
-            <ol id="Focaccia">
-                <li>make the Focaccia</li>
+            <div>
+                <ol id = "Focaccia">
+                    <li>make the Focaccia</li>
+                </ol> 
+            
                 <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta, rerum quaerat! 
                     Quo expedita quasi tenetur est. Adipisci sequi harum, repellat doloremque incidunt 
                     consequatur vero praesentium? At, quia. Ad, maiores cum.
                 </p>
-                
+            </div>
+
+            <div>
                 <span>
                     read more on
                 </span>
-                <a href="#">
+
+                <a href="#" class = "link">
                     Sympli recip
                 </a>
-            </ol>
-    </main>
+            </div>
+        </main>
     
 </body>
 </html>
