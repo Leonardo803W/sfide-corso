@@ -123,6 +123,34 @@ latestShoppingCart(carello)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+/*const loopUntil = function (n) {
+
+    let consecutiveCount = 0;
+
+    if (n < 0 || n > 9)
+    {
+        console.error("Il numero deve essere compreso tra 0 e 9.");
+        return;
+    }
+
+    while (consecutiveCount < 3) {
+
+        const randomNum = Math.floor(Math.random() * 10);
+        console.log(randomNum); 
+
+        if (randomNum > n)
+        {
+            consecutiveCount++;
+        } 
+        else 
+        {
+            consecutiveCount = 0;
+        }
+    }
+};
+
+loopUntil(8);
+*/
 
 /* EXTRA 7
 Crea una funzione chiamata "average" che riceve un array come parametro e ne ritorna la media aritmetica. La funzione salta automaticamente i valori non numerici nell'array.
